@@ -101,8 +101,39 @@ async function seed() {
 
   // 4. Complaints — 30 records across lifecycle states
   console.log("📋 Inserting complaints...");
-  const now = new Date();
+  // Keep the walkthrough's relative dates stable across seed/reset runs.
+  const now = new Date("2026-10-25T12:00:00.000Z");
   const daysAgo = (d) => new Date(now - d * 86400000).toISOString().slice(0,10);
+
+  // The student demo persona is an established Apex student. The complaint and
+  // duplicate APIs intentionally enforce affiliation, so seed that prerequisite
+  // rather than weakening production authorization for the demo.
+  const { data: existingAffiliation, error: affiliationLookupError } = await supabase
+    .from("affiliations")
+    .select("id")
+    .eq("user_id", studentId)
+    .eq("institution_id", apex)
+    .eq("type", "current_student")
+    .maybeSingle();
+  if (affiliationLookupError) throw new Error(`Demo student affiliation lookup failed: ${affiliationLookupError.message}`);
+  if (existingAffiliation) {
+    const { error } = await supabase.from("affiliations").update({ status: "verified" }).eq("id", existingAffiliation.id);
+    if (error) throw new Error(`Demo student affiliation update failed: ${error.message}`);
+  } else {
+    const { error } = await supabase.from("affiliations").insert({
+      user_id: studentId,
+      institution_id: apex,
+      type: "current_student",
+      enrollment_no: "DEMO-2026-001",
+      programme: "Computer Science and Engineering",
+      year: "2026",
+      status: "verified",
+      claimed_at: now.toISOString(),
+      reviewed_at: now.toISOString(),
+    });
+    if (error) throw new Error(`Demo student affiliation seed failed: ${error.message}`);
+  }
+  console.log("   ✅ Demo student affiliation verified at Apex Institute of Technology");
 
   const complaints = [
     // === Normal lifecycle cases ===
@@ -198,6 +229,25 @@ async function seed() {
   if (c101 && c102) {
     await ensureAlert(apex, "related", c101, c102,
       { category_match: 1, text_similarity: 0.81, date_proximity: 1, different_bureaus: true, match_strength: 0.87, note: "DEMO: Apex fee pair (plan section 11)" });
+  }
+
+  // Seed visible, role-scoped in-app notices and audit history. Stable keys make
+  // these rows repeatable without creating duplicates on every reset/run.
+  if (c101 && c102) {
+    const notifications = [
+      { user_id: studentId, complaint_id: c101.id, event_type: "status_changed", channel: "in_app", status: "delivered", idempotency_key: "demo-seed:student:status:00101", created_at: now.toISOString() },
+      { user_id: pgrcId, complaint_id: c101.id, event_type: "case_assigned", channel: "in_app", status: "delivered", idempotency_key: "demo-seed:pgrc:assigned:00101", created_at: now.toISOString() },
+      { user_id: rbId, complaint_id: c102.id, event_type: "deadline_overdue", channel: "in_app", status: "delivered", idempotency_key: "demo-seed:rb:deadline:00102", created_at: now.toISOString() },
+    ];
+    const { error: notificationError } = await supabase.from("notifications").upsert(notifications, { onConflict: "idempotency_key" });
+    if (notificationError) throw new Error(`Demo notifications seed failed: ${notificationError.message}`);
+
+    const auditEvents = [
+      { id: "d0000000-0000-4000-8000-000000000101", actor_id: studentId, action: "complaint.submitted", resource_type: "complaint", resource_id: c101.id, new_value: { case_id: "NS-2026-00101", status: "under_triage" }, reason: "DEMO seed", event_at: now.toISOString() },
+      { id: "d0000000-0000-4000-8000-000000000102", actor_id: pgrcId, action: "overlap.reviewed", resource_type: "complaint", resource_id: c101.id, new_value: { related_case_id: c102.id, match_strength: 0.87 }, reason: "DEMO seed", event_at: now.toISOString() },
+    ];
+    const { error: auditError } = await supabase.from("audit_events").upsert(auditEvents, { onConflict: "id" });
+    if (auditError) throw new Error(`Demo audit history seed failed: ${auditError.message}`);
   }
 
   console.log("   ✅ Overlap alerts seeded");

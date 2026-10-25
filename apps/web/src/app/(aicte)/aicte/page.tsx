@@ -3,7 +3,6 @@ import { getAppSession } from "@/lib/auth/session";
 import KpiDashboard from "@/components/aicte/kpi-dashboard";
 import Link from "next/link";
 import { NotificationBell } from "@/components/notifications/bell";
-import LogoutButton from "@/components/auth/logout-button";
 
 export const metadata = { title: "AICTE Dashboard — NyayaSetu" };
 export const revalidate = 30; // ISR: revalidate every 30s
@@ -36,13 +35,14 @@ export default async function AicteHome() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Top nav */}
-      <header className="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
+      <header className="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <span className="font-bold text-slate-800 text-lg">NyayaSetu</span>
           <span className="text-slate-300">|</span>
           <span className="text-slate-600 text-sm">AICTE Operations Portal</span>
         </div>
-        <div className="flex items-center gap-4 text-sm">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-sm">
+          {(user?.email ?? "").endsWith("@nyayasetu.test") && <DemoPersonaSwitcher currentPersona={(user?.email ?? "").startsWith("rb.") ? "rb" : (user?.email ?? "").startsWith("mgmt.") ? "mgmt" : "pgrc"} />}
           <span className="text-slate-500">{ROLE_LABELS[session.role] ?? session.role}</span>
           {session.bureau && <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium">{session.bureau}</span>}
           <a href="/auth/new-device" className="text-slate-400 hover:text-slate-600 text-xs">Devices</a>
@@ -52,12 +52,12 @@ export default async function AicteHome() {
 
       <main className="max-w-7xl mx-auto px-6 py-6 space-y-6">
         {/* Page header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-xl font-bold text-slate-800">Dashboard</h1>
             <p className="text-sm text-slate-500 mt-0.5">Real-time overview of all institution complaint cases</p>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex flex-wrap gap-2 items-center">
             <NotificationBell />
             {["system_admin", "auditor"].includes(session.role) && (
               <Link href="/aicte/admin/roles"

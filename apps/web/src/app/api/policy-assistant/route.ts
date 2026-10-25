@@ -8,7 +8,7 @@ import { ROUTE_ROLE, type Role } from "@/lib/auth/roles";
 import { embed } from "@/lib/overlap/embeddings";
 import { ABSTAIN_MESSAGE, MAX_PASSAGES, PROCEDURE_ONLY_MESSAGE, isValidityQuestion, selectPassages, type Match } from "@/lib/rag/policy";
 
-export const SIMULATED_LABEL = "Simulated LLM — extractive answer";
+const SIMULATED_LABEL = "Simulated LLM — extractive answer";
 const OFFICER_ROLES = ROUTE_ROLE["/aicte"] as Role[];
 const Body = z.object({ question: z.string().trim().min(3).max(500) });
 
