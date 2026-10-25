@@ -47,7 +47,7 @@ export function DemoPersonaSwitcher({ currentPersona }: { currentPersona: string
       <select id="demo-persona" aria-label="Switch demo persona" value={selected} onChange={(event) => setSelected(event.target.value)} disabled={busy} className="max-w-36 rounded border border-slate-200 bg-white px-2 py-1.5 text-xs text-slate-700">
         {PERSONAS.map((persona) => <option key={persona.key} value={persona.key}>{persona.label}</option>)}
       </select>
-      <button type="button" onClick={switchPersona} disabled={busy || selected === currentPersona} className="rounded border border-slate-200 px-2 py-1.5 text-xs text-slate-600 disabled:opacity-50">
+      <button type="button" onClick={switchPersona} disabled={busy || selected === currentPersona} className="!mt-0 !w-auto shrink-0 whitespace-nowrap rounded border border-slate-200 px-2 py-1.5 text-xs text-slate-600 disabled:opacity-50">
         {busy ? "Switching…" : "Switch"}
       </button>
       {error && <span role="alert" className="text-xs text-red-600">{error}</span>}
