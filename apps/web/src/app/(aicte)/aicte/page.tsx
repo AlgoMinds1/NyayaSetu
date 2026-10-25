@@ -3,6 +3,8 @@ import { getAppSession } from "@/lib/auth/session";
 import KpiDashboard from "@/components/aicte/kpi-dashboard";
 import Link from "next/link";
 import { NotificationBell } from "@/components/notifications/bell";
+import { DemoPersonaSwitcher } from "@/components/demo/persona-switcher";
+import LogoutButton from "@/components/auth/logout-button";
 
 export const metadata = { title: "AICTE Dashboard — NyayaSetu" };
 export const revalidate = 30; // ISR: revalidate every 30s

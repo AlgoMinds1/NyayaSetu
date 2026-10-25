@@ -4,7 +4,7 @@ import { getLocale, getMessages } from "next-intl/server";
 import "./globals.css";
 import { PwaRegister } from "@/components/phase4/pwa-register";
 
-export const metadata: Metadata = { title: "NyayaSetu", description: "AICTE student grievance coordination portal" };
+export const metadata: Metadata = { title: "NyayaSetu", description: "AICTE student grievance coordination portal", icons: { icon: "/nyayasetu.svg", shortcut: "/nyayasetu.svg" } };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const locale = await getLocale();

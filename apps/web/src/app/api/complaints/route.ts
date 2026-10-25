@@ -18,22 +18,36 @@ export async function POST(req:NextRequest){
  // may file without institution proof; normal accounts retain the B11 claim check.
  if(session.role==="student"&&!auth.isDemo){const {data:affiliation,error:affErr}=await admin.from("affiliations").select("id,status").eq("user_id",session.userId).eq("institution_id",input.institution_id).order("claimed_at",{ascending:false}).limit(1).maybeSingle();if(affErr)return NextResponse.json({error:"Could not verify your affiliation. Please retry."},{status:500});if(!affiliation)return NextResponse.json({error:"An affiliation claim with this institution is required. Please add it in your affiliation settings first."},{status:403});verificationStatus=affiliation.status;}
  const description=input.description_text.trim();if(description.split(/[.!?]+/).filter(s=>s.trim()).length<2)return NextResponse.json({error:"Please provide at least two sentences."},{status:400});
- const {data:complaint,error}=await admin.from("complaints").insert({case_id:"",institution_id:input.institution_id,submitted_by:session.userId,category:input.category,description_text:description,description_language:input.description_language,is_confidential:input.is_confidential,involves_management:input.involves_management,urgency_status:input.urgency_status,assigned_bureau:session.role==="pgrc_triage_officer"?input.assigned_bureau??null:null,status:"submitted",verification_status:verificationStatus,coordination_status:"no_overlap",deadline_status:"on_track",appeal_status:"not_applicable",is_demo:auth.isDemo}).select("*").single();
- if(error||!complaint)return NextResponse.json({error:error?.message??"Could not create case."},{status:500});
+ const caseIdPrefix=`NS-${new Date().toISOString().slice(0,10).replaceAll("-","")}-`;
+ const complaintFields={institution_id:input.institution_id,submitted_by:session.userId,category:input.category,description_text:description,description_language:input.description_language,is_confidential:input.is_confidential,involves_management:input.involves_management,urgency_status:input.urgency_status,assigned_bureau:session.role==="pgrc_triage_officer"?input.assigned_bureau??null:null,status:"submitted",verification_status:verificationStatus,coordination_status:"no_overlap",deadline_status:"on_track",appeal_status:"not_applicable",is_demo:auth.isDemo};
+ let complaint:null|({id:string;case_id:string}&Record<string,unknown>)=null;
+ let insertError:{code?:string;message:string}|null=null;
+ // Do not depend on the optional DB case-number trigger. Generate IDs in the
+ // format used by the trigger, with a random suffix to avoid empty/default ID
+ // collisions and concurrent sequence races.
+ for(let attempt=0;attempt<5;attempt++){
+  const caseId=`${caseIdPrefix}${crypto.randomUUID().replaceAll("-","").slice(0,10).toUpperCase()}`;
+  const result=await admin.from("complaints").insert({...complaintFields,case_id:caseId}).select("*").single();
+  if(!result.error){complaint=result.data as {id:string;case_id:string}&Record<string,unknown>;break;}
+  insertError=result.error;
+  if(result.error.code!=="23505"||!result.error.message.includes("complaints_case_id_key"))break;
+ }
+ if(!complaint)return NextResponse.json({error:insertError?.message??"Could not create case."},{status:insertError?.code==="23505"?409:500});
+ const createdComplaint=complaint;
  async function rollbackCreatedComplaint() {
   const dependentTables = ["notifications", "case_events", "participants"] as const;
   for (const table of dependentTables) {
-   const { error: cleanupError } = await admin.from(table).delete().eq("complaint_id", complaint.id);
+   const { error: cleanupError } = await admin.from(table).delete().eq("complaint_id", createdComplaint.id);
    if (cleanupError) console.error(`[complaints] rollback failed for ${table}:`, cleanupError.message);
   }
-  const { error: cleanupError } = await admin.from("complaints").delete().eq("id", complaint.id);
+  const { error: cleanupError } = await admin.from("complaints").delete().eq("id", createdComplaint.id);
   if (cleanupError) console.error("[complaints] rollback failed for complaint:", cleanupError.message);
  }
  const now=new Date().toISOString();
- const [eventResult,participantResult]=await Promise.all([admin.from("case_events").insert({complaint_id:complaint.id,event_type:"case_submitted",actor_id:session.userId,actor_role:session.role,new_state:{status:"submitted"},visibility:"complainant",event_at:now}),admin.from("participants").insert({complaint_id:complaint.id,user_id:session.userId,role:"complainant",access_scope:"redacted_summary"})]);
+ const [eventResult,participantResult]=await Promise.all([admin.from("case_events").insert({complaint_id:createdComplaint.id,event_type:"case_submitted",actor_id:session.userId,actor_role:session.role,new_state:{status:"submitted"},visibility:"complainant",event_at:now}),admin.from("participants").insert({complaint_id:createdComplaint.id,user_id:session.userId,role:"complainant",access_scope:"redacted_summary"})]);
  if(eventResult.error||participantResult.error){console.error("[complaints] required write failed:",eventResult.error?.message??participantResult.error?.message);await rollbackCreatedComplaint();return NextResponse.json({error:"The case could not be fully recorded. Check that the latest database migrations are applied, then retry."},{status:500})}
- try{await auditLog({actor_id:session.userId,action:"complaint.created",resource_type:"complaint",resource_id:complaint.id,new_value:{case_id:complaint.case_id,category:complaint.category}})}catch(error){console.error("[complaints] audit write failed:",error instanceof Error?error.message:"unknown error");await rollbackCreatedComplaint();return NextResponse.json({error:"The case could not be recorded in the audit trail. Check the database migration state, then retry."},{status:500})}
- embed(description).then(vector=>admin.from("complaints").update({description_embedding:JSON.stringify(vector)}).eq("id",complaint.id)).then(({error:saveError})=>{if(saveError)console.error("[overlap] could not store embedding:",saveError.message)}).catch(err=>console.error("[overlap] embedding failed:",err));
+ try{await auditLog({actor_id:session.userId,action:"complaint.created",resource_type:"complaint",resource_id:createdComplaint.id,new_value:{case_id:createdComplaint.case_id,category:createdComplaint.category}})}catch(error){console.error("[complaints] audit write failed:",error instanceof Error?error.message:"unknown error");await rollbackCreatedComplaint();return NextResponse.json({error:"The case could not be recorded in the audit trail. Check the database migration state, then retry."},{status:500})}
+ embed(description).then(vector=>admin.from("complaints").update({description_embedding:JSON.stringify(vector)}).eq("id",createdComplaint.id)).then(({error:saveError})=>{if(saveError)console.error("[overlap] could not store embedding:",saveError.message)}).catch(err=>console.error("[overlap] embedding failed:",err));
  if(session.role==="pgrc_triage_officer")fetch(`${req.nextUrl.origin}/api/overlap/detect`,{method:"POST",headers:{cookie:req.headers.get("cookie")??"","x-user-role":session.role}}).catch(()=>{});
- return NextResponse.json({complaint},{status:201});
+ return NextResponse.json({complaint:createdComplaint},{status:201});
 }
