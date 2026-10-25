@@ -3,6 +3,7 @@ import { getAppSession } from "@/lib/auth/session";
 import KpiDashboard from "@/components/aicte/kpi-dashboard";
 import Link from "next/link";
 import { NotificationBell } from "@/components/notifications/bell";
+import LogoutButton from "@/components/auth/logout-button";
 
 export const metadata = { title: "AICTE Dashboard — NyayaSetu" };
 export const revalidate = 30; // ISR: revalidate every 30s
@@ -45,9 +46,7 @@ export default async function AicteHome() {
           <span className="text-slate-500">{ROLE_LABELS[session.role] ?? session.role}</span>
           {session.bureau && <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-medium">{session.bureau}</span>}
           <a href="/auth/new-device" className="text-slate-400 hover:text-slate-600 text-xs">Devices</a>
-          <form action="/api/auth/signout" method="POST">
-            <button className="text-slate-400 hover:text-red-500 text-xs">Sign out</button>
-          </form>
+          <LogoutButton className="text-slate-400 hover:text-red-500 text-xs" />
         </div>
       </header>
 
