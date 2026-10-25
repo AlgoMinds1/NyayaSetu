@@ -71,11 +71,11 @@ export function ComplaintForm({ institutions, intake = false }: { institutions: 
     if (sentences.length < 2) { setError("Please provide at least two sentences."); return; }
     if (description.trim().length < 10 || description.length > 10000) { setError("Description must be between 10 and 10,000 characters."); return; }
     if (!institution) { setError("Choose an institution."); return; }
-    if (!navigator.onLine) { setError("You’re offline. Your draft is saved in this browser; reconnect to submit it."); return; }
+    if (!navigator.onLine) { setError("You're offline. Your draft is saved in this browser; reconnect to submit it."); return; }
     setBusy(true);
     try {
       const r = await fetch("/api/complaints", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ institution_id: institution, category, description_text: description, description_language: language, is_confidential: confidential, involves_management: management, urgency_status: urgent ? "urgent" : "untriaged", assigned_bureau: bureau || null }) });
-      const d = await r.json(); if (!r.ok) throw new Error(d.error?.message ?? d.error ?? "Could not submit case.");
+      const d = await r.json().catch(() => ({})); if (!r.ok) throw new Error(d.error?.message ?? d.error ?? `Server error (${r.status}). Please retry.`);
       await del(draftKey); router.push(`${intake ? "/aicte/cases" : "/student/cases"}/${d.complaint.id}`); router.refresh();
     } catch (err) { setError(err instanceof Error ? err.message : "Submission failed."); }
     finally { setBusy(false); }
