@@ -1,0 +1,107 @@
+{
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "hindi": "हिन्दी (Hindi)",
+    "simulated": "Simulated: Bhashini",
+    "realOcr": "Real: Tesseract OCR (on-device)"
+  },
+  "nav": {
+    "myCases": "My cases",
+    "fileComplaint": "File new complaint",
+    "affiliation": "Affiliation",
+    "privacy": "Privacy centre",
+    "roster": "Roster",
+    "committee": "Committee",
+    "compliance": "Compliance",
+    "workload": "My workload",
+    "settings": "Settings"
+  },
+  "bell": {
+    "label": "Notifications",
+    "empty": "No notifications yet.",
+    "markAllRead": "Mark all as read",
+    "unread": "{count} unread",
+    "open": "Open case"
+  },
+  "settings": {
+    "title": "Notification settings",
+    "intro": "Choose how you hear about updates on your cases. Messages never include complaint text.",
+    "event": "Update",
+    "inApp": "In app",
+    "email": "Email",
+    "push": "Push",
+    "enablePush": "Enable push on this device",
+    "pushDisabledServer": "Push is off until the server has VAPID keys configured.",
+    "pushUnsupported": "This browser does not support push notifications.",
+    "pushEnabled": "Push is enabled on this device.",
+    "save": "Save preferences",
+    "saved": "Preferences saved.",
+    "languageTitle": "Language for messages and screens"
+  },
+  "events": {
+    "status_changed": "Case status changes",
+    "referred_to_college": "Case referred to my institution",
+    "hearing_scheduled": "Hearing scheduled",
+    "deadline_nearing": "Deadline nearing",
+    "deadline_overdue": "Deadline missed",
+    "decision_recorded": "Decision recorded",
+    "appeal_submitted": "Appeal submitted",
+    "reassignment_needed": "Reassignment needed",
+    "case_message": "New case update",
+    "case_assigned": "Case assigned to me",
+    "feedback_received": "Feedback received"
+  },
+  "notify": {
+    "status_changed": { "title": "Case status updated", "body": "Case {caseId} has a new status. Open it to see the details." },
+    "referred_to_college": { "title": "Case referred to your institution", "body": "Case {caseId} needs an institutional response. Review it on your dashboard." },
+    "hearing_scheduled": { "title": "Hearing scheduled", "body": "A hearing has been scheduled for case {caseId}. Open the case for the date and time." },
+    "deadline_nearing": { "title": "Deadline approaching", "body": "Case {caseId} is nearing its response deadline." },
+    "deadline_overdue": { "title": "Deadline missed", "body": "Case {caseId} is past its response deadline." },
+    "decision_recorded": { "title": "Decision recorded", "body": "A decision has been recorded on case {caseId}." },
+    "appeal_submitted": { "title": "Appeal submitted", "body": "An appeal has been submitted for case {caseId}." },
+    "reassignment_needed": { "title": "Reassignment needed", "body": "Case {caseId} needs a new assigned faculty member." },
+    "case_message": { "title": "New update on your case", "body": "There is a new update on case {caseId}." },
+    "case_assigned": { "title": "Case assigned to you", "body": "Case {caseId} has been assigned to you." },
+    "feedback_received": { "title": "Feedback received", "body": "The complainant has submitted feedback on case {caseId}." }
+  },
+  "complaint": {
+    "institution": "Institution",
+    "category": "Category",
+    "description": "Description",
+    "language": "Language",
+    "confidential": "Keep this complaint confidential",
+    "management": "The allegation involves college management",
+    "submit": "Submit complaint",
+    "speak": "Speak description",
+    "speakStop": "Stop listening",
+    "speakUnsupported": "Voice input is not available in this browser. A simulated transcript will be added instead.",
+    "speakFailed": "Voice input failed. Try again or type."
+  },
+  "affiliation": {
+    "title": "Claim an affiliation",
+    "type": "Affiliation type",
+    "enrollment": "Enrollment number",
+    "programme": "Programme",
+    "submit": "Submit claim",
+    "scanTitle": "Scan ID card (optional)",
+    "scanHint": "Reads the card on this device to fill the fields. The image is never uploaded."
+  },
+  "scan": {
+    "choose": "Choose an ID card image or PDF",
+    "processing": "Reading the card on this device…",
+    "fallback": "We could not read this card clearly. Please fill the fields by hand.",
+    "smallImage": "This image is under 300 pixels wide. A clearer photo will read better.",
+    "aadhaar": "An Aadhaar-like number was found and has been masked. Do not share Aadhaar numbers here.",
+    "apply": "Use these values",
+    "name": "Name",
+    "enrollment": "Enrollment number",
+    "programme": "Programme",
+    "year": "Year",
+    "institution": "Institution",
+    "high": "High confidence",
+    "medium": "Check this",
+    "low": "Low confidence, fill by hand",
+    "failed": "Scan failed. Enter the details by hand."
+  }
+}

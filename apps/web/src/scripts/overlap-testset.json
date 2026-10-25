@@ -1,0 +1,3302 @@
+[
+  {
+    "id": "p001",
+    "category": "true_overlap",
+    "a": {
+      "text": "After cancelling my seat my tuition fee refund has not come through even though the withdrawal form was submitted months ago.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-04-25",
+      "lang": "en"
+    },
+    "b": {
+      "text": "My admission was cancelled but the fees I paid are not returned to my account and the accounts office gives no date.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-16",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p002",
+    "category": "true_overlap",
+    "a": {
+      "text": "The college collected more money than the prospectus states for admission and has not justified the extra amount to the students.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-04-09",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-05-03",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p003",
+    "category": "true_overlap",
+    "a": {
+      "text": "The post-matric scholarship has not been paid this year and nobody in the accounts section can tell me the status of my application.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-04-09",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Scholarship disbursement is delayed by more than six months; the department sends my file back and forth without any decision.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-05-20",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p004",
+    "category": "true_overlap",
+    "a": {
+      "text": "The hostel mess serves stale food and the warden ignores repeated complaints about hygiene in the kitchen.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-05-04",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Hygiene in the hostel dining hall is poor, the food is often stale, and the mess contractor is not being held accountable.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-05-29",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p005",
+    "category": "true_overlap",
+    "a": {
+      "text": "Water shortage in the hostel has continued for more than a week and the estate office has ignored our complaint about the tank.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-04-05",
+      "lang": "en"
+    },
+    "b": {
+      "text": "There has been no water supply in the hostel rooms for ten days and the maintenance section has not sent anyone to fix the pump.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-05-18",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p006",
+    "category": "true_overlap",
+    "a": {
+      "text": "Practical classes are suspended because the laboratory machines are not functioning and the lab in-charge says procurement is pending.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-01-19",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Lab equipment in the electronics laboratory is broken and the department has not repaired or replaced it despite several requests.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-02-19",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p007",
+    "category": "true_overlap",
+    "a": {
+      "text": "The transport department discontinued the morning bus to our area, and there is no alternative for students living far from campus.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-06-06",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Shuttle service on the route has been cancelled without notice, leaving students stranded, and the transport section does not reply.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-07-19",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p008",
+    "category": "true_overlap",
+    "a": {
+      "text": "Senior students have been harassing first-year students in the hostel and demanding money, and the anti-ragging committee has not acted.",
+      "category": "ragging",
+      "bureau": "PGRC",
+      "institution": "Ganga Valley College",
+      "date": "2026-06-25",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was threatened and forced to perform humiliating tasks by a group of seniors, and the college has not taken any action despite my written complaint.",
+      "category": "ragging",
+      "bureau": "RB-West",
+      "institution": "Ganga Valley College",
+      "date": "2026-07-23",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p009",
+    "category": "true_overlap",
+    "a": {
+      "text": "The results of the end-semester examination were declared three months late and the revaluation form is still not accepted.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-02-15",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The end-term result is still not declared after many months, and the revaluation application has been stuck with the exam section.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-03-13",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p010",
+    "category": "true_overlap",
+    "a": {
+      "text": "My degree certificate is pending for more than a year although I have cleared all dues and the records section confirmed my eligibility.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-05-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I applied for my bonafide and transfer certificate two months ago but the administrative office keeps delaying the issue.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-06-21",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p011",
+    "category": "true_overlap",
+    "a": {
+      "text": "A promised placement drive was cancelled at the last moment and the placement cell has refused to explain why the offers were withdrawn.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-05-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The placement cell promised campus recruitment with a fixed package and then cancelled the drive without any explanation to the students.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-05-27",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p012",
+    "category": "true_overlap",
+    "a": {
+      "text": "My attendance record is wrong in the system and the department refuses to correct it, which has blocked my exam registration.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-03-22",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was denied the examination form because of an attendance shortage that was never recorded properly in the college portal.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-04-23",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p013",
+    "category": "true_overlap",
+    "a": {
+      "text": "Regular classes in the core subject are not being held because the faculty member is absent and the department has not arranged cover.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-01-03",
+      "lang": "en"
+    },
+    "b": {
+      "text": "We have had no lectures in the final-year course for weeks and the head of department has ignored our written requests.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-01-26",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p014",
+    "category": "true_overlap",
+    "a": {
+      "text": "A wrong overdue fine was recorded against my library card even though I returned the borrowed book before the due date.",
+      "category": "other",
+      "bureau": "RB-North",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-03-10",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The library levied a heavy fine for a book I returned on time and the library staff refuses to correct the entry in the register.",
+      "category": "other",
+      "bureau": "RB-South",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-04-09",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p015",
+    "category": "true_overlap",
+    "a": {
+      "text": "The institute has not refunded my fee deposit after I withdrew my admission, and the refund is still pending after several reminders.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-03-20",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-04-11",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p016",
+    "category": "true_overlap",
+    "a": {
+      "text": "The college collected more money than the prospectus states for admission and has not justified the extra amount to the students.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-02-23",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-03-09",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p017",
+    "category": "true_overlap",
+    "a": {
+      "text": "Scholarship disbursement is delayed by more than six months; the department sends my file back and forth without any decision.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-01-22",
+      "lang": "en"
+    },
+    "b": {
+      "text": "My scholarship amount has been pending for seven months and the college office keeps saying the file is with the sanctioning authority.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-02-21",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p018",
+    "category": "true_overlap",
+    "a": {
+      "text": "The hostel mess serves stale food and the warden ignores repeated complaints about hygiene in the kitchen.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-05-23",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Food served in the hostel mess is unhygienic and the mess committee has not responded to written complaints for weeks.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-05-26",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p019",
+    "category": "true_overlap",
+    "a": {
+      "text": "The water pump in the boys hostel is out of order, so students are forced to buy water for drinking and washing.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-02-19",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Water shortage in the hostel has continued for more than a week and the estate office has ignored our complaint about the tank.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-03-19",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p020",
+    "category": "true_overlap",
+    "a": {
+      "text": "The computer laboratory has not had working equipment for most of the semester, so practical sessions cannot be completed on time.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Ganga Valley College",
+      "date": "2026-02-28",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Lab equipment in the electronics laboratory is broken and the department has not repaired or replaced it despite several requests.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Ganga Valley College",
+      "date": "2026-03-28",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p021",
+    "category": "true_overlap",
+    "a": {
+      "text": "Students who depend on the campus bus are left behind because the route is not operated as per the published timetable.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-03-20",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The transport department discontinued the morning bus to our area, and there is no alternative for students living far from campus.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-04-02",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p022",
+    "category": "true_overlap",
+    "a": {
+      "text": "Freshers are being subjected to ragging by seniors who demand money and make them do humiliating tasks in the hostel every evening.",
+      "category": "ragging",
+      "bureau": "RB-West",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-03-28",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Senior students have been harassing first-year students in the hostel and demanding money, and the anti-ragging committee has not acted.",
+      "category": "ragging",
+      "bureau": "PGRC",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-05-09",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p023",
+    "category": "true_overlap",
+    "a": {
+      "text": "The results of the end-semester examination were declared three months late and the revaluation form is still not accepted.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-05-07",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The end-term result is still not declared after many months, and the revaluation application has been stuck with the exam section.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-05-25",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p024",
+    "category": "true_overlap",
+    "a": {
+      "text": "The college has withheld my transfer certificate despite a clear no-dues certificate, so I cannot take admission elsewhere.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-02-03",
+      "lang": "en"
+    },
+    "b": {
+      "text": "My degree certificate is pending for more than a year although I have cleared all dues and the records section confirmed my eligibility.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-02-11",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p025",
+    "category": "true_overlap",
+    "a": {
+      "text": "A promised placement drive was cancelled at the last moment and the placement cell has refused to explain why the offers were withdrawn.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-06-11",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The placement office misled us about recruiters visiting campus, and several eligible students lost opportunities after the drive was called off.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-07-16",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p026",
+    "category": "true_overlap",
+    "a": {
+      "text": "I was denied the examination form because of an attendance shortage that was never recorded properly in the college portal.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-04-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Attendance shortage was wrongly marked against several students and they were barred from appearing in the semester exams.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-05-03",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p027",
+    "category": "true_overlap",
+    "a": {
+      "text": "Regular classes in the core subject are not being held because the faculty member is absent and the department has not arranged cover.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-05-18",
+      "lang": "en"
+    },
+    "b": {
+      "text": "We have had no lectures in the final-year course for weeks and the head of department has ignored our written requests.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-05-22",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p028",
+    "category": "true_overlap",
+    "a": {
+      "text": "Library fines are being imposed incorrectly on students who have returned their books, and no one responds at the circulation desk.",
+      "category": "other",
+      "bureau": "RB-South",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-01-01",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was charged a library fine for a book that was already returned, and the counter has not reversed the amount despite the receipt.",
+      "category": "other",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-02-06",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p029",
+    "category": "true_overlap",
+    "a": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-05-29",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The institute has not refunded my fee deposit after I withdrew my admission, and the refund is still pending after several reminders.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-06-05",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p030",
+    "category": "true_overlap",
+    "a": {
+      "text": "The college collected more money than the prospectus states for admission and has not justified the extra amount to the students.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-01-07",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-01-16",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p031",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The placement cell promised campus recruitment with a fixed package and then cancelled the drive without any explanation to the students.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-04-15",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I have not received my scholarship for the entire previous semester and the principal's office says it is awaiting approval.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-04-27",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p032",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-02-22",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The transfer certificate has not been issued even after I cleared all dues and submitted the no-dues form to the office.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-03-02",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p033",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "Water shortage in the hostel has continued for more than a week and the estate office has ignored our complaint about the tank.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-01-05",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Students cannot finish their lab work since the laboratory instruments have been out of order for many weeks.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-01-07",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p034",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "My degree certificate is pending for more than a year although I have cleared all dues and the records section confirmed my eligibility.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-01-24",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Freshers are being subjected to ragging by seniors who demand money and make them do humiliating tasks in the hostel every evening.",
+      "category": "ragging",
+      "bureau": "RB-South",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-02-13",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p035",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "A professor has not taken classes for two months and no substitute arrangement was made, so the syllabus is far behind schedule.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Ganga Valley College",
+      "date": "2026-03-06",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The college collected more money than the prospectus states for admission and has not justified the extra amount to the students.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Ganga Valley College",
+      "date": "2026-03-27",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p036",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "After cancelling my seat my tuition fee refund has not come through even though the withdrawal form was submitted months ago.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-04-27",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Students in the hostel are getting spoiled food from the mess and the hostel warden has not taken any corrective action.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-05-24",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p037",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "Senior students have been harassing first-year students in the hostel and demanding money, and the anti-ragging committee has not acted.",
+      "category": "ragging",
+      "bureau": "PGRC",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-01-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The computer laboratory has not had working equipment for most of the semester, so practical sessions cannot be completed on time.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-01-31",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p038",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The transfer certificate has not been issued even after I cleared all dues and submitted the no-dues form to the office.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Indus Management College",
+      "date": "2026-05-12",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-06-07",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p039",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The results of the end-semester examination were declared three months late and the revaluation form is still not accepted.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-02-05",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Additional charges beyond the published fee schedule were collected from our batch, and the accounts office refuses to give a breakdown.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-03-03",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p040",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The water pump in the boys hostel is out of order, so students are forced to buy water for drinking and washing.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-06-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Shuttle service on the route has been cancelled without notice, leaving students stranded, and the transport section does not reply.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-07-03",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p041",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The placement cell promised campus recruitment with a fixed package and then cancelled the drive without any explanation to the students.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-03-09",
+      "lang": "en"
+    },
+    "b": {
+      "text": "A professor has not taken classes for two months and no substitute arrangement was made, so the syllabus is far behind schedule.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-04-03",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p042",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "Students were told that a company would visit for placements but the drive was cancelled and the placement office has not given any reason.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-04-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "There has been no water supply in the hostel rooms for ten days and the maintenance section has not sent anyone to fix the pump.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-05-11",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p043",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "A wrong overdue fine was recorded against my library card even though I returned the borrowed book before the due date.",
+      "category": "other",
+      "bureau": "RB-South",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-01-31",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The transport department discontinued the morning bus to our area, and there is no alternative for students living far from campus.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-02-03",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p044",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The computer laboratory has not had working equipment for most of the semester, so practical sessions cannot be completed on time.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-05-06",
+      "lang": "en"
+    },
+    "b": {
+      "text": "A professor has not taken classes for two months and no substitute arrangement was made, so the syllabus is far behind schedule.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-05-15",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p045",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "Scholarship disbursement is delayed by more than six months; the department sends my file back and forth without any decision.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-04-22",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Students were told that a company would visit for placements but the drive was cancelled and the placement office has not given any reason.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-05-16",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p046",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "A professor has not taken classes for two months and no substitute arrangement was made, so the syllabus is far behind schedule.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-01-24",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The placement office misled us about recruiters visiting campus, and several eligible students lost opportunities after the drive was called off.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-02-14",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p047",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The transport department discontinued the morning bus to our area, and there is no alternative for students living far from campus.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Ganga Valley College",
+      "date": "2026-03-08",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I have not received my scholarship for the entire previous semester and the principal's office says it is awaiting approval.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Ganga Valley College",
+      "date": "2026-03-13",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p048",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-06-12",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The transport department discontinued the morning bus to our area, and there is no alternative for students living far from campus.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-06-23",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p049",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "Freshers are being subjected to ragging by seniors who demand money and make them do humiliating tasks in the hostel every evening.",
+      "category": "ragging",
+      "bureau": "RB-North",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-02-12",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The results of the end-semester examination were declared three months late and the revaluation form is still not accepted.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-03-11",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p050",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "Library fines are being imposed incorrectly on students who have returned their books, and no one responds at the circulation desk.",
+      "category": "other",
+      "bureau": "RB-West",
+      "institution": "Indus Management College",
+      "date": "2026-06-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Food served in the hostel mess is unhygienic and the mess committee has not responded to written complaints for weeks.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-07-07",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p051",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "I have not received my scholarship for the entire previous semester and the principal's office says it is awaiting approval.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-06-18",
+      "lang": "en"
+    },
+    "b": {
+      "text": "My degree certificate is pending for more than a year although I have cleared all dues and the records section confirmed my eligibility.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-06-25",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p052",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "Our hostel block has had irregular water supply for weeks, and the caretaker has not repaired the overhead tank.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-04-30",
+      "lang": "en"
+    },
+    "b": {
+      "text": "My scholarship amount has been pending for seven months and the college office keeps saying the file is with the sanctioning authority.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-24",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p053",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The college has withheld my transfer certificate despite a clear no-dues certificate, so I cannot take admission elsewhere.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-01-06",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Scholarship disbursement is delayed by more than six months; the department sends my file back and forth without any decision.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-01-28",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p054",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "My degree certificate is pending for more than a year although I have cleared all dues and the records section confirmed my eligibility.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-05-23",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Hygiene in the hostel dining hall is poor, the food is often stale, and the mess contractor is not being held accountable.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-06-05",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p055",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The transfer certificate has not been issued even after I cleared all dues and submitted the no-dues form to the office.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-04-14",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Ragging continues in the hostel block at night; a group of final-year students is intimidating juniors and the warden is aware of it.",
+      "category": "ragging",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-04-22",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p056",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "My semester result has not been published for over three months and the examination cell does not respond to my queries.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-06-10",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Water shortage in the hostel has continued for more than a week and the estate office has ignored our complaint about the tank.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-07-06",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p057",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The placement office misled us about recruiters visiting campus, and several eligible students lost opportunities after the drive was called off.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-03-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Students in the hostel are getting spoiled food from the mess and the hostel warden has not taken any corrective action.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-03-26",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p058",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "I was charged a library fine for a book that was already returned, and the counter has not reversed the amount despite the receipt.",
+      "category": "other",
+      "bureau": "RB-West",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-02-09",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The institute charged an extra development fee at admission that was not mentioned in the prospectus, and the receipt does not explain it.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-03-06",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p059",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "The college bus skips our stop every morning and the transport office has not responded to repeated complaints from the students.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Ganga Valley College",
+      "date": "2026-03-01",
+      "lang": "en"
+    },
+    "b": {
+      "text": "There has been no water supply in the hostel rooms for ten days and the maintenance section has not sent anyone to fix the pump.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Ganga Valley College",
+      "date": "2026-03-10",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p060",
+    "category": "cross_bureau_different_issue",
+    "a": {
+      "text": "I have not received my scholarship for the entire previous semester and the principal's office says it is awaiting approval.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-06-06",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Students were told that a company would visit for placements but the drive was cancelled and the placement office has not given any reason.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-06-15",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p061",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "After cancelling my seat my tuition fee refund has not come through even though the withdrawal form was submitted months ago.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-02-18",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Ganga Valley College",
+      "date": "2026-02-24",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p062",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "The institute charged an extra development fee at admission that was not mentioned in the prospectus, and the receipt does not explain it.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-02-16",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Additional charges beyond the published fee schedule were collected from our batch, and the accounts office refuses to give a breakdown.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-02-17",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p063",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "My scholarship amount has been pending for seven months and the college office keeps saying the file is with the sanctioning authority.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-03-22",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Scholarship disbursement is delayed by more than six months; the department sends my file back and forth without any decision.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-04-06",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p064",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "Hygiene in the hostel dining hall is poor, the food is often stale, and the mess contractor is not being held accountable.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-05-03",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The hostel mess serves stale food and the warden ignores repeated complaints about hygiene in the kitchen.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Ganga Valley College",
+      "date": "2026-05-06",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p065",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "The water pump in the boys hostel is out of order, so students are forced to buy water for drinking and washing.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-05-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "There has been no water supply in the hostel rooms for ten days and the maintenance section has not sent anyone to fix the pump.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-25",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p066",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "Students cannot finish their lab work since the laboratory instruments have been out of order for many weeks.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-02-21",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Practical classes are suspended because the laboratory machines are not functioning and the lab in-charge says procurement is pending.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-03-06",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p067",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "Shuttle service on the route has been cancelled without notice, leaving students stranded, and the transport section does not reply.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Ganga Valley College",
+      "date": "2026-06-23",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Students who depend on the campus bus are left behind because the route is not operated as per the published timetable.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-07-01",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p068",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "Freshers are being subjected to ragging by seniors who demand money and make them do humiliating tasks in the hostel every evening.",
+      "category": "ragging",
+      "bureau": "RB-West",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-01-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Ragging continues in the hostel block at night; a group of final-year students is intimidating juniors and the warden is aware of it.",
+      "category": "ragging",
+      "bureau": "RB-South",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-02-14",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p069",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "Exam results for the last semester are delayed beyond the notified date, which is affecting my internship and placement process.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Ganga Valley College",
+      "date": "2026-02-05",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The results of the end-semester examination were declared three months late and the revaluation form is still not accepted.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-02-09",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p070",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "The college has withheld my transfer certificate despite a clear no-dues certificate, so I cannot take admission elsewhere.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-06-09",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The transfer certificate has not been issued even after I cleared all dues and submitted the no-dues form to the office.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-06-18",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p071",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "A promised placement drive was cancelled at the last moment and the placement cell has refused to explain why the offers were withdrawn.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-03-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The placement office misled us about recruiters visiting campus, and several eligible students lost opportunities after the drive was called off.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-03-29",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p072",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "I was denied the examination form because of an attendance shortage that was never recorded properly in the college portal.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Ganga Valley College",
+      "date": "2026-05-06",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Attendance shortage was wrongly marked against several students and they were barred from appearing in the semester exams.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-05-23",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p073",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "Regular classes in the core subject are not being held because the faculty member is absent and the department has not arranged cover.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-02-08",
+      "lang": "en"
+    },
+    "b": {
+      "text": "We have had no lectures in the final-year course for weeks and the head of department has ignored our written requests.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Indus Management College",
+      "date": "2026-02-11",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p074",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "I was charged a library fine for a book that was already returned, and the counter has not reversed the amount despite the receipt.",
+      "category": "other",
+      "bureau": "RB-West",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-04-02",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Library fines are being imposed incorrectly on students who have returned their books, and no one responds at the circulation desk.",
+      "category": "other",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-04-07",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p075",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-05-24",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The institute has not refunded my fee deposit after I withdrew my admission, and the refund is still pending after several reminders.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-06-08",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p076",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "The institute charged an extra development fee at admission that was not mentioned in the prospectus, and the receipt does not explain it.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-04-18",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Indus Management College",
+      "date": "2026-04-21",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p077",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "My scholarship amount has been pending for seven months and the college office keeps saying the file is with the sanctioning authority.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-01-17",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The post-matric scholarship has not been paid this year and nobody in the accounts section can tell me the status of my application.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-02-01",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p078",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "The hostel mess serves stale food and the warden ignores repeated complaints about hygiene in the kitchen.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-05-11",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Food served in the hostel mess is unhygienic and the mess committee has not responded to written complaints for weeks.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-12",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p079",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "The water pump in the boys hostel is out of order, so students are forced to buy water for drinking and washing.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-06-23",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Water shortage in the hostel has continued for more than a week and the estate office has ignored our complaint about the tank.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-06-26",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p080",
+    "category": "different_institution_similar_wording",
+    "a": {
+      "text": "Students cannot finish their lab work since the laboratory instruments have been out of order for many weeks.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-02-18",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Lab equipment in the electronics laboratory is broken and the department has not repaired or replaced it despite several requests.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-02-20",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p081",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "मैंने प्रवेश रद्द करवाया था, लेकिन जमा की गई फीस की वापसी अभी तक मेरे खाते में नहीं हुई है और कार्यालय कोई तारीख नहीं बता रहा।",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-04-19",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-04-25",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p082",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "प्रवेश के समय प्रॉस्पेक्टस में न लिखा गया अतिरिक्त शुल्क लिया गया है और उसका कोई स्पष्टीकरण नहीं दिया जा रहा।",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-02-22",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-03-18",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p083",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "मेरी छात्रवृत्ति की राशि सात महीने से लंबित है और कॉलेज कार्यालय कहता है कि फाइल स्वीकृति के लिए भेजी गई है।",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Ganga Valley College",
+      "date": "2026-06-02",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "The post-matric scholarship has not been paid this year and nobody in the accounts section can tell me the status of my application.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Ganga Valley College",
+      "date": "2026-07-01",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p084",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "छात्रावास के मेस में बासी और अस्वच्छ खाना परोसा जा रहा है, और वार्डन ने बार-बार की गई शिकायतों पर कोई कार्रवाई नहीं की।",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-03-05",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "Food served in the hostel mess is unhygienic and the mess committee has not responded to written complaints for weeks.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-03-20",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p085",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "छात्रावास के कमरों में दस दिन से पानी की आपूर्ति बंद है और रखरखाव विभाग ने मोटर ठीक करने के लिए अभी तक कोई नहीं भेजा।",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-04-22",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "Our hostel block has had irregular water supply for weeks, and the caretaker has not repaired the overhead tank.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-05-08",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p086",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "प्रयोगशाला के उपकरण कई हफ्तों से खराब पड़े हैं, जिससे प्रायोगिक कक्षाएं पूरी नहीं हो पा रहीं।",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-03-12",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "Lab equipment in the electronics laboratory is broken and the department has not repaired or replaced it despite several requests.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Indus Management College",
+      "date": "2026-04-02",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p087",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "कॉलेज की बस सुबह हमारे स्टॉप पर नहीं रुकती और परिवहन विभाग ने बार-बार की शिकायतों पर कोई जवाब नहीं दिया।",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-05-02",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "Students who depend on the campus bus are left behind because the route is not operated as per the published timetable.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-05-28",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p088",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "छात्रावास में सीनियर छात्र नए छात्रों से पैसे मांगते हैं और उन्हें अपमानजनक काम करने पर मजबूर करते हैं, पर कोई कार्रवाई नहीं हुई।",
+      "category": "ragging",
+      "bureau": "RB-West",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-04-04",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "Freshers are being subjected to ragging by seniors who demand money and make them do humiliating tasks in the hostel every evening.",
+      "category": "ragging",
+      "bureau": "RB-North",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-04-29",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p089",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "पिछले सेमेस्टर का परीक्षा परिणाम तीन महीने से घोषित नहीं हुआ है और परीक्षा विभाग मेरे आवेदन का जवाब नहीं दे रहा।",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-03-27",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "The end-term result is still not declared after many months, and the revaluation application has been stuck with the exam section.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-04-04",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p090",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "मैंने सभी बकाया चुका दिए हैं, फिर भी मेरा स्थानांतरण प्रमाणपत्र अभी तक जारी नहीं किया गया है और इससे दूसरे कॉलेज में प्रवेश रुक गया है।",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-02-22",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "I applied for my bonafide and transfer certificate two months ago but the administrative office keeps delaying the issue.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-03-10",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p091",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "प्लेसमेंट सेल ने कैंपस भर्ती का वादा किया था, लेकिन ड्राइव बिना किसी कारण के रद्द कर दी गई और छात्रों के अवसर खत्म हो गए।",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-01-06",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "The placement cell promised campus recruitment with a fixed package and then cancelled the drive without any explanation to the students.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-01-12",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p092",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "पोर्टल पर मेरी उपस्थिति गलत दर्ज है और विभाग उसे सुधारने से इनकार कर रहा है, जिससे मेरा परीक्षा फॉर्म रुक गया है।",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-05-01",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "The attendance portal shows me as absent on days I was present, and the faculty member has not corrected the register.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-05-18",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p093",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "एक विषय के शिक्षक दो महीने से कक्षा नहीं ले रहे और विभाग ने वैकल्पिक व्यवस्था नहीं की, जिससे पाठ्यक्रम अधूरा है।",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-06-20",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "The assigned teacher has been absent for most of the semester and the course is incomplete, affecting our preparation badly.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-07-08",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p094",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "पुस्तकालय ने समय पर लौटाई गई किताब के लिए जुर्माना लगा दिया है और रसीद दिखाने के बाद भी रिकॉर्ड ठीक नहीं किया गया।",
+      "category": "other",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-04-05",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "The library levied a heavy fine for a book I returned on time and the library staff refuses to correct the entry in the register.",
+      "category": "other",
+      "bureau": "RB-West",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-04-18",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p095",
+    "category": "hi_en_same_institution",
+    "a": {
+      "text": "मैंने प्रवेश रद्द करवाया था, लेकिन जमा की गई फीस की वापसी अभी तक मेरे खाते में नहीं हुई है और कार्यालय कोई तारीख नहीं बता रहा।",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Ganga Valley College",
+      "date": "2026-02-23",
+      "lang": "hi"
+    },
+    "b": {
+      "text": "After cancelling my seat my tuition fee refund has not come through even though the withdrawal form was submitted months ago.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Ganga Valley College",
+      "date": "2026-03-03",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p096",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "My admission was cancelled but the fees I paid are not returned to my account and the accounts office gives no date.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Ganga Valley College",
+      "date": "2026-01-09",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Ganga Valley College",
+      "date": "2026-01-30",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p097",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "Hygiene in the hostel dining hall is poor, the food is often stale, and the mess contractor is not being held accountable.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-01-22",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Students in the hostel are getting spoiled food from the mess and the hostel warden has not taken any corrective action.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Shivalik Insttiute of Pharmacy",
+      "date": "2026-02-02",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p098",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "Shuttle service on the route has been cancelled without notice, leaving students stranded, and the transport section does not reply.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-06-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The transport department discontinued the morning bus to our area, and there is no alternative for students living far from campus.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Tamra Instiutte of Architecture",
+      "date": "2026-07-11",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p099",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "My degree certificate is pending for more than a year although I have cleared all dues and the records section confirmed my eligibility.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Indus Management College",
+      "date": "2026-02-24",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The transfer certificate has not been issued even after I cleared all dues and submitted the no-dues form to the office.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Indus Managmeent College",
+      "date": "2026-03-13",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p100",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "The assigned teacher has been absent for most of the semester and the course is incomplete, affecting our preparation badly.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-04-06",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Regular classes in the core subject are not being held because the faculty member is absent and the department has not arranged cover.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Prakriti Egnineering Institute",
+      "date": "2026-04-18",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p101",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "The college collected more money than the prospectus states for admission and has not justified the extra amount to the students.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-04-29",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Additional charges beyond the published fee schedule were collected from our batch, and the accounts office refuses to give a breakdown.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Aurora Insttiute of Technology",
+      "date": "2026-05-04",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p102",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "Water shortage in the hostel has continued for more than a week and the estate office has ignored our complaint about the tank.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-05-29",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Our hostel block has had irregular water supply for weeks, and the caretaker has not repaired the overhead tank.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Meridian Collgee of Engineering",
+      "date": "2026-06-11",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p103",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "Senior students have been harassing first-year students in the hostel and demanding money, and the anti-ragging committee has not acted.",
+      "category": "ragging",
+      "bureau": "RB-South",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-04-08",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Ragging continues in the hostel block at night; a group of final-year students is intimidating juniors and the warden is aware of it.",
+      "category": "ragging",
+      "bureau": "PGRC",
+      "institution": "Kiran Vdiya Mahavidyalaya",
+      "date": "2026-04-21",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p104",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "The placement office misled us about recruiters visiting campus, and several eligible students lost opportunities after the drive was called off.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-03-18",
+      "lang": "en"
+    },
+    "b": {
+      "text": "A promised placement drive was cancelled at the last moment and the placement cell has refused to explain why the offers were withdrawn.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Nalanda Enginereing College",
+      "date": "2026-03-27",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p105",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "I was charged a library fine for a book that was already returned, and the counter has not reversed the amount despite the receipt.",
+      "category": "other",
+      "bureau": "RB-North",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-06-22",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The library levied a heavy fine for a book I returned on time and the library staff refuses to correct the entry in the register.",
+      "category": "other",
+      "bureau": "RB-West",
+      "institution": "Sahyadri Isntitute of Management",
+      "date": "2026-07-11",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p106",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "My scholarship amount has been pending for seven months and the college office keeps saying the file is with the sanctioning authority.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-02-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The post-matric scholarship has not been paid this year and nobody in the accounts section can tell me the status of my application.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Vanya Techncial Institute",
+      "date": "2026-03-07",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p107",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "The computer laboratory has not had working equipment for most of the semester, so practical sessions cannot be completed on time.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-03-01",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Practical classes are suspended because the laboratory machines are not functioning and the lab in-charge says procurement is pending.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Deccan Polytecnhic Academy",
+      "date": "2026-03-18",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p108",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "The end-term result is still not declared after many months, and the revaluation application has been stuck with the exam section.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Ganga Valley College",
+      "date": "2026-06-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The results of the end-semester examination were declared three months late and the revaluation form is still not accepted.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Ganga Valely College",
+      "date": "2026-07-22",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p109",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "The attendance portal shows me as absent on days I was present, and the faculty member has not corrected the register.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-06-19",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was denied the examination form because of an attendance shortage that was never recorded properly in the college portal.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Shivalik Instittue of Pharmacy",
+      "date": "2026-06-21",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p110",
+    "category": "spelling_variant_institution",
+    "a": {
+      "text": "My admission was cancelled but the fees I paid are not returned to my account and the accounts office gives no date.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-02-25",
+      "lang": "en"
+    },
+    "b": {
+      "text": "After cancelling my seat my tuition fee refund has not come through even though the withdrawal form was submitted months ago.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Tamra Intsitute of Architecture",
+      "date": "2026-03-22",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": true
+  },
+  {
+    "id": "p111",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "My admission was cancelled but the fees I paid are not returned to my account and the accounts office gives no date.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-01-20",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-01-22",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p112",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "Practical classes are suspended because the laboratory machines are not functioning and the lab in-charge says procurement is pending.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-05-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Shuttle service on the route has been cancelled without notice, leaving students stranded, and the transport section does not reply.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Indus Management College",
+      "date": "2026-05-18",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p113",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "A professor has not taken classes for two months and no substitute arrangement was made, so the syllabus is far behind schedule.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-03-14",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Attendance shortage was wrongly marked against several students and they were barred from appearing in the semester exams.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-03-16",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p114",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "The institute has not refunded my fee deposit after I withdrew my admission, and the refund is still pending after several reminders.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-24",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I have not received my scholarship for the entire previous semester and the principal's office says it is awaiting approval.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-30",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p115",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "Practical classes are suspended because the laboratory machines are not functioning and the lab in-charge says procurement is pending.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-01-15",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Shuttle service on the route has been cancelled without notice, leaving students stranded, and the transport section does not reply.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-01-15",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p116",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "My attendance record is wrong in the system and the department refuses to correct it, which has blocked my exam registration.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-05-21",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I applied for my bonafide and transfer certificate two months ago but the administrative office keeps delaying the issue.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-05-23",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p117",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "My admission was cancelled but the fees I paid are not returned to my account and the accounts office gives no date.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-05-10",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I have not received my scholarship for the entire previous semester and the principal's office says it is awaiting approval.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-05-16",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p118",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "Lab equipment in the electronics laboratory is broken and the department has not repaired or replaced it despite several requests.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-06-07",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Water shortage in the hostel has continued for more than a week and the estate office has ignored our complaint about the tank.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-06-12",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p119",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "My attendance record is wrong in the system and the department refuses to correct it, which has blocked my exam registration.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-04-26",
+      "lang": "en"
+    },
+    "b": {
+      "text": "We have had no lectures in the final-year course for weeks and the head of department has ignored our written requests.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-05-01",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p120",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "Scholarship disbursement is delayed by more than six months; the department sends my file back and forth without any decision.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-03-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-03-19",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p121",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "Shuttle service on the route has been cancelled without notice, leaving students stranded, and the transport section does not reply.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Ganga Valley College",
+      "date": "2026-01-01",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The computer laboratory has not had working equipment for most of the semester, so practical sessions cannot be completed on time.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Ganga Valley College",
+      "date": "2026-01-01",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p122",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "The college has withheld my transfer certificate despite a clear no-dues certificate, so I cannot take admission elsewhere.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-03-09",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Exam results for the last semester are delayed beyond the notified date, which is affecting my internship and placement process.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-03-15",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p123",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "The college collected more money than the prospectus states for admission and has not justified the extra amount to the students.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-02-09",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The post-matric scholarship has not been paid this year and nobody in the accounts section can tell me the status of my application.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-02-12",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p124",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "Shuttle service on the route has been cancelled without notice, leaving students stranded, and the transport section does not reply.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Indus Management College",
+      "date": "2026-06-13",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Lab equipment in the electronics laboratory is broken and the department has not repaired or replaced it despite several requests.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-06-17",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p125",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "I was denied the examination form because of an attendance shortage that was never recorded properly in the college portal.",
+      "category": "academic",
+      "bureau": "RB-West",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-04-11",
+      "lang": "en"
+    },
+    "b": {
+      "text": "A professor has not taken classes for two months and no substitute arrangement was made, so the syllabus is far behind schedule.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-04-16",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p126",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-24",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The post-matric scholarship has not been paid this year and nobody in the accounts section can tell me the status of my application.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-25",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p127",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "Our hostel block has had irregular water supply for weeks, and the caretaker has not repaired the overhead tank.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-06-17",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The college bus skips our stop every morning and the transport office has not responded to repeated complaints from the students.",
+      "category": "infrastructure",
+      "bureau": "RB-West",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-06-22",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p128",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "I applied for my bonafide and transfer certificate two months ago but the administrative office keeps delaying the issue.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-04-03",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Students were told that a company would visit for placements but the drive was cancelled and the placement office has not given any reason.",
+      "category": "academic",
+      "bureau": "RB-South",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-04-05",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p129",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "The institute has not refunded my fee deposit after I withdrew my admission, and the refund is still pending after several reminders.",
+      "category": "financial",
+      "bureau": "RB-West",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-04-10",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The post-matric scholarship has not been paid this year and nobody in the accounts section can tell me the status of my application.",
+      "category": "financial",
+      "bureau": "RB-South",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-04-11",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p130",
+    "category": "hard_negative_same_category",
+    "a": {
+      "text": "The college bus skips our stop every morning and the transport office has not responded to repeated complaints from the students.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-03-04",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Food served in the hostel mess is unhygienic and the mess committee has not responded to written complaints for weeks.",
+      "category": "infrastructure",
+      "bureau": "RB-South",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-03-08",
+      "lang": "en"
+    },
+    "expect_alert1": true,
+    "expect_alert2": false
+  },
+  {
+    "id": "p131",
+    "category": "incomplete_record",
+    "a": {
+      "text": "My admission was cancelled but the fees I paid are not returned to my account and the accounts office gives no date.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-06-06",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I paid the semester fee and later withdrew, yet the refundable amount has not been credited back to me.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p132",
+    "category": "incomplete_record",
+    "a": {
+      "text": "The institute charged an extra development fee at admission that was not mentioned in the prospectus, and the receipt does not explain it.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-03-02",
+      "lang": "en"
+    },
+    "b": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": null,
+      "institution": "Nalanda Engineering College",
+      "date": "2026-03-02",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p133",
+    "category": "incomplete_record",
+    "a": {
+      "text": "The post-matric scholarship has not been paid this year and nobody in the accounts section can tell me the status of my application.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-04-07",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Scholarship disbursement is delayed by more than six months; the department sends my file back and forth without any decision.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Sahyadri Institute of Management",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p134",
+    "category": "incomplete_record",
+    "a": {
+      "text": "Students in the hostel are getting spoiled food from the mess and the hostel warden has not taken any corrective action.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-03-17",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The hostel mess serves stale food and the warden ignores repeated complaints about hygiene in the kitchen.",
+      "category": "infrastructure",
+      "bureau": null,
+      "institution": "Vanya Technical Institute",
+      "date": "2026-04-01",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p135",
+    "category": "incomplete_record",
+    "a": {
+      "text": "The water pump in the boys hostel is out of order, so students are forced to buy water for drinking and washing.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-06-12",
+      "lang": "en"
+    },
+    "b": {
+      "text": "There has been no water supply in the hostel rooms for ten days and the maintenance section has not sent anyone to fix the pump.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Deccan Polytechnic Academy",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p136",
+    "category": "incomplete_record",
+    "a": {
+      "text": "Students cannot finish their lab work since the laboratory instruments have been out of order for many weeks.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Ganga Valley College",
+      "date": "2026-04-27",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Lab equipment in the electronics laboratory is broken and the department has not repaired or replaced it despite several requests.",
+      "category": "infrastructure",
+      "bureau": null,
+      "institution": "Ganga Valley College",
+      "date": "2026-04-30",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p137",
+    "category": "incomplete_record",
+    "a": {
+      "text": "Students who depend on the campus bus are left behind because the route is not operated as per the published timetable.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-03-11",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The college bus skips our stop every morning and the transport office has not responded to repeated complaints from the students.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p138",
+    "category": "incomplete_record",
+    "a": {
+      "text": "Ragging continues in the hostel block at night; a group of final-year students is intimidating juniors and the warden is aware of it.",
+      "category": "ragging",
+      "bureau": "PGRC",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-01-21",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Senior students have been harassing first-year students in the hostel and demanding money, and the anti-ragging committee has not acted.",
+      "category": "ragging",
+      "bureau": null,
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-01-25",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p139",
+    "category": "incomplete_record",
+    "a": {
+      "text": "My semester result has not been published for over three months and the examination cell does not respond to my queries.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Indus Management College",
+      "date": "2026-06-01",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The end-term result is still not declared after many months, and the revaluation application has been stuck with the exam section.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Indus Management College",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p140",
+    "category": "incomplete_record",
+    "a": {
+      "text": "The college has withheld my transfer certificate despite a clear no-dues certificate, so I cannot take admission elsewhere.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-05-24",
+      "lang": "en"
+    },
+    "b": {
+      "text": "My degree certificate is pending for more than a year although I have cleared all dues and the records section confirmed my eligibility.",
+      "category": "academic",
+      "bureau": null,
+      "institution": "Prakriti Engineering Institute",
+      "date": "2026-05-29",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": true
+  },
+  {
+    "id": "p141",
+    "category": "incomplete_record",
+    "a": {
+      "text": "The placement cell promised campus recruitment with a fixed package and then cancelled the drive without any explanation to the students.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Aurora Institute of Technology",
+      "date": "2026-05-14",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The institute has not refunded my fee deposit after I withdrew my admission, and the refund is still pending after several reminders.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Aurora Institute of Technology",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p142",
+    "category": "incomplete_record",
+    "a": {
+      "text": "I was denied the examination form because of an attendance shortage that was never recorded properly in the college portal.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Meridian College of Engineering",
+      "date": "2026-02-17",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The institute charged an extra development fee at admission that was not mentioned in the prospectus, and the receipt does not explain it.",
+      "category": "financial",
+      "bureau": null,
+      "institution": "Meridian College of Engineering",
+      "date": "2026-02-21",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p143",
+    "category": "incomplete_record",
+    "a": {
+      "text": "A professor has not taken classes for two months and no substitute arrangement was made, so the syllabus is far behind schedule.",
+      "category": "academic",
+      "bureau": "PGRC",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": "2026-01-29",
+      "lang": "en"
+    },
+    "b": {
+      "text": "My scholarship amount has been pending for seven months and the college office keeps saying the file is with the sanctioning authority.",
+      "category": "financial",
+      "bureau": "RB-North",
+      "institution": "Kiran Vidya Mahavidyalaya",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p144",
+    "category": "incomplete_record",
+    "a": {
+      "text": "I was charged a library fine for a book that was already returned, and the counter has not reversed the amount despite the receipt.",
+      "category": "other",
+      "bureau": "PGRC",
+      "institution": "Nalanda Engineering College",
+      "date": "2026-02-15",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The hostel mess serves stale food and the warden ignores repeated complaints about hygiene in the kitchen.",
+      "category": "infrastructure",
+      "bureau": null,
+      "institution": "Nalanda Engineering College",
+      "date": "2026-03-02",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p145",
+    "category": "incomplete_record",
+    "a": {
+      "text": "The institute has not refunded my fee deposit after I withdrew my admission, and the refund is still pending after several reminders.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Sahyadri Institute of Management",
+      "date": "2026-03-01",
+      "lang": "en"
+    },
+    "b": {
+      "text": "There has been no water supply in the hostel rooms for ten days and the maintenance section has not sent anyone to fix the pump.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Sahyadri Institute of Management",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p146",
+    "category": "incomplete_record",
+    "a": {
+      "text": "I was asked to pay a hidden fee at the time of admission which is not in the official fee structure and no proper receipt was issued.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Vanya Technical Institute",
+      "date": "2026-01-30",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The computer laboratory has not had working equipment for most of the semester, so practical sessions cannot be completed on time.",
+      "category": "infrastructure",
+      "bureau": null,
+      "institution": "Vanya Technical Institute",
+      "date": "2026-02-10",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p147",
+    "category": "incomplete_record",
+    "a": {
+      "text": "My scholarship amount has been pending for seven months and the college office keeps saying the file is with the sanctioning authority.",
+      "category": "financial",
+      "bureau": "PGRC",
+      "institution": "Deccan Polytechnic Academy",
+      "date": "2026-05-25",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The college bus skips our stop every morning and the transport office has not responded to repeated complaints from the students.",
+      "category": "infrastructure",
+      "bureau": "RB-North",
+      "institution": "Deccan Polytechnic Academy",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p148",
+    "category": "incomplete_record",
+    "a": {
+      "text": "Hygiene in the hostel dining hall is poor, the food is often stale, and the mess contractor is not being held accountable.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Ganga Valley College",
+      "date": "2026-06-23",
+      "lang": "en"
+    },
+    "b": {
+      "text": "Senior students have been harassing first-year students in the hostel and demanding money, and the anti-ragging committee has not acted.",
+      "category": "ragging",
+      "bureau": null,
+      "institution": "Ganga Valley College",
+      "date": "2026-07-04",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p149",
+    "category": "incomplete_record",
+    "a": {
+      "text": "The water pump in the boys hostel is out of order, so students are forced to buy water for drinking and washing.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": "2026-01-16",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The results of the end-semester examination were declared three months late and the revaluation form is still not accepted.",
+      "category": "academic",
+      "bureau": "RB-North",
+      "institution": "Shivalik Institute of Pharmacy",
+      "date": null,
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  },
+  {
+    "id": "p150",
+    "category": "incomplete_record",
+    "a": {
+      "text": "Students cannot finish their lab work since the laboratory instruments have been out of order for many weeks.",
+      "category": "infrastructure",
+      "bureau": "PGRC",
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-05-17",
+      "lang": "en"
+    },
+    "b": {
+      "text": "The transfer certificate has not been issued even after I cleared all dues and submitted the no-dues form to the office.",
+      "category": "academic",
+      "bureau": null,
+      "institution": "Tamra Institute of Architecture",
+      "date": "2026-05-28",
+      "lang": "en"
+    },
+    "expect_alert1": false,
+    "expect_alert2": false
+  }
+]

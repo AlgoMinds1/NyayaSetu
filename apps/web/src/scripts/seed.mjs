@@ -1,5 +1,5 @@
 // Seed script — run with: node --env-file=.env.local src/scripts/seed.mjs
-// Inserts 10 institutions, 8 demo users, 30 complaints, 3 overlap scenarios.
+// Inserts 10 institutions, 6 demo auth users (no passwords), 32 complaints, and overlap scenarios. Idempotent: safe to re-run.
 // All records have is_demo=true (where applicable) and display "DEMO" in the UI.
 
 import { createClient } from "@supabase/supabase-js";
@@ -24,17 +24,32 @@ const INSTITUTIONS = [
 ];
 
 // ── 2. Demo users ─────────────────────────────────────────────────────────────
-// These are created directly in the users table (bypassing Auth for seeding).
-const DEMO_USERS = [
-  { id: "00000000-0000-0000-0000-000000000001", display_name: "Demo Student",          email: "student@nyayasetu.demo",     is_active: true },
-  { id: "00000000-0000-0000-0000-000000000002", display_name: "Demo Faculty",           email: "faculty@nyayasetu.demo",     is_active: true },
-  { id: "00000000-0000-0000-0000-000000000003", display_name: "Demo College Officer",   email: "college@nyayasetu.demo",     is_active: true },
-  { id: "00000000-0000-0000-0000-000000000004", display_name: "Demo PGRC Officer",      email: "pgrc@nyayasetu.demo",        is_active: true },
-  { id: "00000000-0000-0000-0000-000000000005", display_name: "Demo RB Officer",        email: "rb@nyayasetu.demo",          is_active: true },
-  { id: "00000000-0000-0000-0000-000000000006", display_name: "Demo Bureau Head",       email: "bureauhead@nyayasetu.demo",  is_active: true },
-  { id: "00000000-0000-0000-0000-000000000007", display_name: "Demo Senior Management", email: "mgmt@nyayasetu.demo",        is_active: true },
-  { id: "00000000-0000-0000-0000-000000000008", display_name: "Demo Auditor",           email: "auditor@nyayasetu.demo",     is_active: true },
+// Six demo roles. Each is a real Supabase Auth user (email_confirm, no password: sign-in is by email OTP).
+// The users row is created by the auth trigger; role_assignments link each persona to its scope.
+const DEMO_PERSONAS = [
+  { key: "student",  display_name: "Demo Student",          role: "student",              institution: "AP-2001-0001" },
+  { key: "faculty",  display_name: "Demo Faculty",          role: "faculty",              institution: "AP-2001-0001" },
+  { key: "college",  display_name: "Demo College Officer",  role: "college_management",   institution: "AP-2001-0001" },
+  { key: "pgrc",     display_name: "Demo PGRC Officer",     role: "pgrc_triage_officer",  bureau: "PGRC" },
+  { key: "rb",       display_name: "Demo RB Officer",       role: "bureau_officer",       bureau: "RB" },
+  { key: "mgmt",     display_name: "Demo Senior Management", role: "competent_authority" },
 ];
+
+/** Returns the auth user id for an email, creating the user only when it does not exist. Idempotent. */
+async function ensureAuthUser(email, displayName) {
+  for (let page = 1; page < 50; page++) {
+    const { data, error } = await supabase.auth.admin.listUsers({ page, perPage: 200 });
+    if (error) throw new Error(`listUsers: ${error.message}`);
+    const found = data.users.find((u) => u.email === email);
+    if (found) return found.id;
+    if (data.users.length < 200) break;
+  }
+  const { data, error } = await supabase.auth.admin.createUser({
+    email, email_confirm: true, user_metadata: { display_name: displayName, demo: true },
+  });
+  if (error) throw new Error(`createUser ${email}: ${error.message}`);
+  return data.user.id;
+}
 
 async function seed() {
   console.log("🌱 Seeding NyayaSetu demo data...\n");
@@ -54,34 +69,35 @@ async function seed() {
   const south   = instMap["AP-2001-0003"];
   const east    = instMap["AP-2001-0004"];
 
-  // 2. Demo users
-  console.log("👤 Inserting demo users...");
-  const { error: userErr } = await supabase
-    .from("users")
-    .upsert(DEMO_USERS, { onConflict: "email" });
-  if (userErr) console.warn("User upsert warning (may already exist):", userErr.message);
-  console.log(`   ✅ ${DEMO_USERS.length} demo users`);
+  // 2. Demo auth users (idempotent: existing emails are reused)
+  console.log("👤 Ensuring demo auth users...");
+  const personaIds = {};
+  for (const p of DEMO_PERSONAS) {
+    const email = `${p.key}.demo@nyayasetu.test`;
+    personaIds[p.key] = await ensureAuthUser(email, p.display_name);
+    await supabase.from("users").upsert(
+      { id: personaIds[p.key], email, display_name: p.display_name, is_active: true },
+      { onConflict: "id" }
+    );
+  }
+  console.log(`   ✅ ${DEMO_PERSONAS.length} demo users (sign in by email OTP)`);
 
-  const pgrcId   = "00000000-0000-0000-0000-000000000004";
-  const rbId     = "00000000-0000-0000-0000-000000000005";
-  const studentId = "00000000-0000-0000-0000-000000000001";
+  const pgrcId    = personaIds.pgrc;
+  const rbId      = personaIds.rb;
+  const studentId = personaIds.student;
 
-  // 3. Role assignments
+  // 3. Role assignments: one active assignment per user (unique index), so each persona is cleared then re-granted.
   console.log("🔐 Inserting role assignments...");
-  const roleAssignments = [
-    { user_id: studentId, role: "student",              granted_by: rbId, reason: "DEMO seed" },
-    { user_id: "00000000-0000-0000-0000-000000000002", role: "faculty",    institution_id: apex, granted_by: rbId, reason: "DEMO seed" },
-    { user_id: "00000000-0000-0000-0000-000000000003", role: "college_management", institution_id: apex, granted_by: rbId, reason: "DEMO seed" },
-    { user_id: pgrcId,   role: "pgrc_triage_officer",  bureau: "PGRC",  granted_by: rbId, reason: "DEMO seed" },
-    { user_id: rbId,     role: "bureau_officer",        bureau: "RB",    granted_by: rbId, reason: "DEMO seed" },
-    { user_id: "00000000-0000-0000-0000-000000000006", role: "bureau_head", bureau: "PGRC", granted_by: rbId, reason: "DEMO seed" },
-    { user_id: "00000000-0000-0000-0000-000000000007", role: "competent_authority", granted_by: rbId, reason: "DEMO seed" },
-    { user_id: "00000000-0000-0000-0000-000000000008", role: "auditor",   granted_by: rbId, reason: "DEMO seed" },
-  ];
+  const roleAssignments = DEMO_PERSONAS.map((p) => ({
+    user_id: personaIds[p.key], role: p.role,
+    institution_id: p.institution ? instMap[p.institution] : null,
+    bureau: p.bureau ?? null,
+    granted_by: rbId, reason: "DEMO seed",
+  }));
   await supabase.from("role_assignments").delete().in("user_id", roleAssignments.map(r => r.user_id));
   const { error: roleErr } = await supabase.from("role_assignments").insert(roleAssignments);
-  if (roleErr) console.error("Role insert error:", roleErr);
-  else console.log(`   ✅ ${roleAssignments.length} role assignments`);
+  if (roleErr) { console.error("Role insert error:", roleErr); process.exit(1); }
+  console.log(`   ✅ ${roleAssignments.length} role assignments`);
 
   // 4. Complaints — 30 records across lifecycle states
   console.log("📋 Inserting complaints...");
@@ -126,6 +142,9 @@ async function seed() {
     { case_id:"NS-2026-00028", institution_id:south, submitted_by:studentId, category:"financial",       status:"under_triage",         assigned_bureau:"PGRC", receipt_date:daysAgo(3),  description_text:"Transport bus fees increased by 40% mid-semester without AICTE approval." },
     { case_id:"NS-2026-00029", institution_id:east,  submitted_by:studentId, category:"academic",        status:"referred",             assigned_bureau:"PGRC", receipt_date:daysAgo(14), description_text:"Guest faculty teaching core subjects for entire semester violating AICTE faculty norms." },
     { case_id:"NS-2026-00030", institution_id:instMap["AP-2001-0010"], submitted_by:studentId, category:"other",        status:"out_of_scope",         assigned_bureau:"PGRC", receipt_date:daysAgo(25), description_text:"Request to change course branch after admission." },
+    // === DEMO SCENARIO (plan §11): Apex fee pair. Same category, same week, matching wording. Drives the related alert.
+    { case_id:"NS-2026-00101", institution_id:apex, submitted_by:studentId, category:"financial", status:"under_triage", assigned_bureau:"PGRC", assigned_officer:pgrcId, receipt_date:daysAgo(4), urgency_status:"triaged", description_text:"Hostel fee of Rs 12000 was charged twice this semester and the duplicate payment refund has not been processed after two written requests." },
+    { case_id:"NS-2026-00102", institution_id:apex, submitted_by:studentId, category:"financial", status:"under_examination", assigned_bureau:"RB", assigned_officer:rbId, receipt_date:daysAgo(4), urgency_status:"triaged", description_text:"Hostel fee charged twice this semester; the duplicate payment has not been refunded despite written requests to the accounts office." },
   ].map(c => ({
     status:                "submitted",
     verification_status:   "pending",
@@ -150,31 +169,41 @@ async function seed() {
   const { data: c15 } = await supabase.from("complaints").select("id").eq("case_id","NS-2026-00015").single();
   const { data: c16 } = await supabase.from("complaints").select("id").eq("case_id","NS-2026-00016").single();
   const { data: c17 } = await supabase.from("complaints").select("id").eq("case_id","NS-2026-00017").single();
+  const { data: c101 } = await supabase.from("complaints").select("id").eq("case_id","NS-2026-00101").single();
+  const { data: c102 } = await supabase.from("complaints").select("id").eq("case_id","NS-2026-00102").single();
+
+  // Idempotent: an alert with the same institution, type and complaint pair is left alone.
+  async function ensureAlert(institutionId, alertType, a, b, matchFactors) {
+    const ids = [a.id, b.id].sort();
+    const { data: existing } = await supabase.from("overlap_alerts").select("id")
+      .eq("institution_id", institutionId).eq("alert_type", alertType).contains("complaint_ids", ids);
+    if (existing?.length) return;
+    const { error } = await supabase.from("overlap_alerts").insert({
+      institution_id: institutionId, alert_type: alertType, status: "open", complaint_ids: ids, match_factors: matchFactors,
+    });
+    if (error) console.error("Alert insert error:", error.message);
+  }
 
   if (c14 && c15) {
-    await supabase.from("overlap_alerts").insert({
-      institution_id: apex, alert_type: "coordination", status: "open",
-      complaint_ids: [c14.id, c15.id],
-      match_factors: { same_institution: true, different_bureaus: ["PGRC","RB"], note: "DEMO: Cross-bureau coordination scenario" },
-    });
+    await ensureAlert(apex, "coordination", c14, c15,
+      { same_institution: true, different_bureaus: ["PGRC","RB"], note: "DEMO: Cross-bureau coordination scenario" });
   }
   if (c16 && c17) {
-    await supabase.from("overlap_alerts").insert({
-      institution_id: green, alert_type: "coordination", status: "open",
-      complaint_ids: [c16.id, c17.id],
-      match_factors: { same_institution: true, different_bureaus: ["PGRC","RB"], same_category: "financial", note: "DEMO: Same issue different wording — triggers both alerts" },
-    });
-    await supabase.from("overlap_alerts").insert({
-      institution_id: green, alert_type: "related", status: "open",
-      complaint_ids: [c16.id, c17.id],
-      match_factors: { category_match: 1, text_similarity: 0.81, date_proximity: 0.9, different_bureaus: true, match_strength: 0.87 },
-    });
+    await ensureAlert(green, "coordination", c16, c17,
+      { same_institution: true, different_bureaus: ["PGRC","RB"], same_category: "financial", note: "DEMO: Same issue different wording — triggers both alerts" });
+    await ensureAlert(green, "related", c16, c17,
+      { category_match: 1, text_similarity: 0.81, date_proximity: 0.9, different_bureaus: true, match_strength: 0.87 });
+  }
+  // Apex §11 scenario: Alert 2 on the matching fee pair (same category, same dates, 81% embedding similarity, DEMO values).
+  if (c101 && c102) {
+    await ensureAlert(apex, "related", c101, c102,
+      { category_match: 1, text_similarity: 0.81, date_proximity: 1, different_bureaus: true, match_strength: 0.87, note: "DEMO: Apex fee pair (plan section 11)" });
   }
 
   console.log("   ✅ Overlap alerts seeded");
   console.log("\n🎉 Seed complete! All records are marked is_demo=true.\n");
-  console.log("Demo accounts (create these in Supabase Auth manually or via dashboard):");
-  DEMO_USERS.forEach(u => console.log(`  ${u.role?.padEnd?.(30) ?? u.display_name.padEnd(30)} ${u.email}`));
+  console.log("Demo accounts (sign in with email OTP; no passwords):");
+  DEMO_PERSONAS.forEach(p => console.log(`  ${p.display_name.padEnd(26)} ${p.role.padEnd(22)} ${p.key}.demo@nyayasetu.test`));
 }
 
 seed().catch(console.error);

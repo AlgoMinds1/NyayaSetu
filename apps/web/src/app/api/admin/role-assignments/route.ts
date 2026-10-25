@@ -18,3 +18,14 @@ export async function POST(request: Request) {
   if (error) return NextResponse.json({ error: error.code === "23505" ? "An equivalent active role already exists." : "Could not grant role." }, { status: 409 });
   return NextResponse.json({ data }, { status: 201 });
 }
+
+// Read-only directory for system_admin and auditor (permission matrix: auditor reads the role directory).
+export async function GET() {
+  const supabase = await createClient(); const { data: { user } } = await supabase.auth.getUser(); if (!user) return NextResponse.json({ error: "Unauthenticated" }, { status: 401 });
+  if (!await hasActiveAppSession(user.id)) return NextResponse.json({ error: "No active application session." }, { status: 401 });
+  const session = await getAppSession(user); if (!["system_admin", "auditor"].includes(session?.role ?? "") || session?.aal !== "aal2") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  const admin = createAdminClient();
+  const { data, error } = await admin.from("role_assignments").select("id,role,bureau,region,granted_at,revoked_at,reason,user:users!user_id(email),granter:users!granted_by(email),institution:institutions!institution_id(name)").order("granted_at", { ascending: false }).limit(500);
+  if (error) return NextResponse.json({ error: "Could not load role assignments." }, { status: 500 });
+  return NextResponse.json({ data: data ?? [] });
+}

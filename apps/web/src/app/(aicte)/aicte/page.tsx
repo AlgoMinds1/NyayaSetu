@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getAppSession } from "@/lib/auth/session";
 import KpiDashboard from "@/components/aicte/kpi-dashboard";
 import Link from "next/link";
+import { NotificationBell } from "@/components/notifications/bell";
 
 export const metadata = { title: "AICTE Dashboard — NyayaSetu" };
 export const revalidate = 30; // ISR: revalidate every 30s
@@ -57,7 +58,28 @@ export default async function AicteHome() {
             <h1 className="text-xl font-bold text-slate-800">Dashboard</h1>
             <p className="text-sm text-slate-500 mt-0.5">Real-time overview of all institution complaint cases</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
+            <NotificationBell />
+            {["system_admin", "auditor"].includes(session.role) && (
+              <Link href="/aicte/admin/roles"
+                className="border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+                Roles
+              </Link>
+            )}
+            {session.role === "system_admin" && (
+              <Link href="/aicte/admin/deadline-rules"
+                className="border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+                Deadline rules
+              </Link>
+            )}
+            <Link href="/aicte/reports"
+              className="border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+              Reports
+            </Link>
+            <Link href="/aicte/assistant"
+              className="border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+              Policy assistant
+            </Link>
             {canCreateCase && (
               <Link href="/aicte/cases/new"
                 className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">

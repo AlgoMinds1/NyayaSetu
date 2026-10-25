@@ -6,13 +6,18 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "seed": "node --env-file=.env.local src/scripts/seed.mjs",
+    "demo:reset": "node --env-file=.env.local src/scripts/demo-reset.mjs",
+    "demo:code": "node --env-file=.env.local src/scripts/demo-login-code.mjs"
   },
   "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
     "@radix-ui/react-slot": "^1.2.3",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.117.3",
@@ -20,22 +25,35 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
+    "exceljs": "^4.4.0",
+    "idb-keyval": "^6.3.0",
     "lucide-react": "^0.468.0",
     "next": "^16.4.2",
+    "next-intl": "^4.14.9",
+    "pdfjs-dist": "^6.4.299",
+    "pdfkit": "^0.20.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "recharts": "^3.10.1",
+    "server-only": "^0.0.1",
     "tailwind-merge": "^3.3.1",
+    "tesseract.js": "^7.0.0",
+    "web-push": "^3.6.7",
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^22.18.6",
+    "@types/pdfkit": "^0.17.7",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "@types/web-push": "^3.6.4",
     "eslint": "^9.35.0",
     "eslint-config-next": "^16.4.2",
     "tailwindcss": "^4.1.13",
-    "typescript": "^5.9.2"
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.2",
+    "vitest": "^5.0.5"
   }
 }

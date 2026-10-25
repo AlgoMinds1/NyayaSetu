@@ -55,6 +55,15 @@ export function canRoleTransition(from: LifecycleStatus, to: LifecycleStatus, ro
   return allowed.includes(role);
 }
 
+// Escalation has no lifecycle enum value, so it is recorded as a case event and keeps the current status.
+export const ESCALATE_ACTION = "escalate";
+const ESCALATION_ROLES = ["bureau_officer", "bureau_head"];
+const NON_OPEN_STATUSES: LifecycleStatus[] = ["closed", "out_of_scope"];
+
+export function canRoleEscalate(from: LifecycleStatus, role: string): boolean {
+  return !NON_OPEN_STATUSES.includes(from) && ESCALATION_ROLES.includes(role);
+}
+
 export function validNextStates(from: LifecycleStatus): LifecycleStatus[] {
   return VALID_TRANSITIONS[from] ?? [];
 }

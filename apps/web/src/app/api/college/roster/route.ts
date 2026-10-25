@@ -1,6 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getApiSession } from "@/lib/auth/api-session";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { auditLog } from "@/lib/audit";
+import { reverifyAffiliations } from "@/lib/affiliations/roster";
 
 const LIMIT = 5 * 1024 * 1024;
 const MAX_ROWS = 10_000;
@@ -64,6 +66,10 @@ export async function POST(req: NextRequest) {
   if (deactivateError) return NextResponse.json({ error: deactivateError.message }, { status: 500 });
   const { error: activateError } = await admin.from("roster_versions").update({ is_active: true }).eq("id", versionId);
   if (activateError) return NextResponse.json({ error: activateError.message }, { status: 500 });
+  try {
+    const reverified = await reverifyAffiliations(admin, institutionId);
+    await auditLog({ actor_id: auth.session.userId, action: "college.roster_uploaded", resource_type: "roster_version", resource_id: versionId, new_value: { institution_id: institutionId, row_count: rows.length, reverified } });
+  } catch (error) { return NextResponse.json({ error: error instanceof Error ? error.message : "Roster re-verification failed." }, { status: 500 }); }
   return NextResponse.json({ version: { id: versionId, row_count: rows.length, is_active: true } }, { status: 201 });
 }
 

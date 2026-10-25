@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getApiSession } from "@/lib/auth/api-session";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { auditLog } from "@/lib/audit";
+import { notify } from "@/lib/notify";
 
 const Input = z.object({ event_type: z.enum(["officer_response", "faculty_response", "officer_action", "case_message", "complainant_update", "evidence_added"]), remarks: z.string().max(5000).optional(), evidence_id: z.string().uuid().optional() });
 type Ctx = { params: Promise<{ id: string }> };
@@ -48,20 +49,15 @@ export async function POST(req: NextRequest, { params }: Ctx) {
   if (college && c.status === "referred") return NextResponse.json({ error: "This referral is not yet awaiting an institution response." }, { status: 409 });
 
   const now = new Date().toISOString(), payload = { remarks: input.data.remarks ?? null, evidence_id: input.data.evidence_id ?? null };
-  const { data: last } = await admin.from("case_events").select("event_hash").eq("complaint_id", id).order("event_at", { ascending: false }).limit(1).maybeSingle();
-  const previous = last?.event_hash ?? null, hash = await hashEvent(previous, type, session.userId, now, payload);
   const visibility = type === "officer_action" ? "internal" : college && type === "officer_response" ? "college" : type === "case_message" || type === "faculty_response" ? "public" : student ? "complainant" : "internal";
-  const { data: event, error } = await admin.from("case_events").insert({ complaint_id: id, event_type: type, actor_id: session.userId, actor_role: session.role, remarks: payload.remarks, new_state: college && type === "officer_response" ? { status: "under_examination" } : null, document_ids: input.data.evidence_id ? [input.data.evidence_id] : [], visibility, event_at: now, prev_event_hash: previous, event_hash: hash }).select("id,event_type,actor_role,remarks,event_at,visibility").single();
+  const { data: event, error } = await admin.from("case_events").insert({ complaint_id: id, event_type: type, actor_id: session.userId, actor_role: session.role, remarks: payload.remarks, new_state: college && type === "officer_response" ? { status: "under_examination" } : null, document_ids: input.data.evidence_id ? [input.data.evidence_id] : [], visibility, event_at: now }).select("id,event_type,actor_role,remarks,event_at,visibility").single();
   if (error || !event) return NextResponse.json({ error: error?.message ?? "Could not record event." }, { status: 500 });
   if (college && type === "officer_response" && c.status === "awaiting_response") {
     const { error: updateError } = await admin.from("complaints").update({ status: "under_examination", last_action_at: now, version: c.version + 1 }).eq("id", id).eq("version", c.version);
     if (updateError) return NextResponse.json({ error: "Response event saved, but case status update failed." }, { status: 500 });
   }
-  await auditLog({ actor_id: session.userId, action: `complaint.${type}`, resource_type: "complaint", resource_id: id, new_value: payload }).catch(() => {});
+  try { await auditLog({ actor_id: session.userId, action: `complaint.${type}`, resource_type: "complaint", resource_id: id, new_value: payload }); }
+  catch { return NextResponse.json({ error: "Event recorded but the audit log could not be written." }, { status: 500 }); }
+  void notify({ event_type: "case_message", complaint_id: id, ref: event.id, actor_id: session.userId });
   return NextResponse.json({ event });
-}
-
-async function hashEvent(previous: string | null, type: string, actor: string, at: string, payload: unknown) {
-  const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(`${previous ?? ""}|${type}|${actor}|${at}|${JSON.stringify(payload)}`));
-  return Array.from(new Uint8Array(bytes)).map((v) => v.toString(16).padStart(2, "0")).join("");
 }

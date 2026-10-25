@@ -150,6 +150,12 @@ export default function AlertCentre() {
                     className="text-xs border border-slate-200 hover:bg-slate-50 text-slate-600 px-3 py-1.5 rounded-lg transition-colors">
                     Institution →
                   </Link>
+                  {tab === "related" && alert.complaint_ids.length === 2 && (
+                    <Link href={`/aicte/alerts/compare?a=${alert.complaint_ids[0]}&b=${alert.complaint_ids[1]}`}
+                      className="text-xs border border-slate-200 hover:bg-slate-50 text-slate-600 px-3 py-1.5 rounded-lg transition-colors">
+                      Compare →
+                    </Link>
+                  )}
                 </div>
               </div>
 

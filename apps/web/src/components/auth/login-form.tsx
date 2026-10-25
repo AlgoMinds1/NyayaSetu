@@ -8,11 +8,16 @@ export default function LoginForm() {
 
   async function sendOtpFor(targetEmail: string) {
     setBusy(true); setError("");
-    const response = await fetch("/api/auth/otp", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email: targetEmail }) });
-    const result = await response.json(); setBusy(false);
-    if (!response.ok) return setError(result.error ?? "Could not send code.");
-    const codeParam = result.devOtp ? `&code=${encodeURIComponent(result.devOtp)}` : "";
-    window.location.href = `/auth/verify?email=${encodeURIComponent(targetEmail)}${codeParam}`;
+    try {
+      const response = await fetch("/api/auth/otp", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email: targetEmail }) });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) return setError(result.error ?? "Could not send code. Please try again.");
+      window.location.assign(`/auth/verify?email=${encodeURIComponent(targetEmail)}`);
+    } catch {
+      setError("Could not reach the sign-in service. Check your connection and try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
@@ -21,11 +26,12 @@ export default function LoginForm() {
   }
 
   const demoAccounts = [
-    { label: "Admin", email: "krishnasahoo11156@gmail.com" },
-    { label: "Student", email: "student@nyayasetu.demo" },
-    { label: "Faculty", email: "faculty@nyayasetu.demo" },
-    { label: "College", email: "college@nyayasetu.demo" },
-    { label: "AICTE PGRC", email: "pgrc@nyayasetu.demo" },
+    { label: "Student", email: "student.demo@nyayasetu.test" },
+    { label: "Faculty", email: "faculty.demo@nyayasetu.test" },
+    { label: "College", email: "college.demo@nyayasetu.test" },
+    { label: "AICTE PGRC", email: "pgrc.demo@nyayasetu.test" },
+    { label: "RB Officer", email: "rb.demo@nyayasetu.test" },
+    { label: "Senior Mgmt", email: "mgmt.demo@nyayasetu.test" },
   ];
 
   return <section className="card"><div className="brand">NyayaSetu · CaseBridge AI</div><h1>Sign in securely</h1><p className="muted">Enter your registered email or choose a demo persona below to sign in instantly.</p>

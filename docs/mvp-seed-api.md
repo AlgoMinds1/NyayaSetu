@@ -155,3 +155,19 @@ const CaseReportResponse = z.object({ data: z.object({ generated_at: z.string().
 ```
 
 For implementation speed, roster CSV upload can use a small private local/demo storage adapter first; the contract keeps the eventual signed-upload flow. No paid external API is required by these contracts. Hosting, email delivery, and database free-tier limits depend on the chosen provider and are not guaranteed by the API design.
+
+## As built (routes actually implemented)
+
+The contracts above are the planning reference. The implemented API differs as follows. Responses are plain JSON (no `data`/`request_id` envelope); errors are `{ "error": ... }`.
+
+| Documented | As built |
+|---|---|
+| `GET /api/overlap-alerts` | `GET /api/overlap/alerts` |
+| `POST /api/overlap-alerts/:id/review` (`decision`) | `POST /api/overlap/alerts/:id/link` and `POST /api/overlap/alerts/:id/dismiss` |
+| `POST /api/complaints/:id/appeals` | `POST /api/complaints/:id/appeal` (student only, body `{ reason }`) |
+| `GET /api/dashboard/summary` | `GET /api/dashboard/kpis` |
+| `POST /api/complaints/:id/transition` body `to` / `expected_version` / `reason` | body `to_status` / `version` / `remarks`; `to_status: "escalate"` records an escalation event and keeps the status |
+| `POST /api/complaints/:id/assign` body `reason` / `expected_version` | body `assigned_bureau`, `assigned_officer`, `remarks` / `version` |
+| `GET /api/complaints` cursor paging | `page` / `limit` paging; filters `case_id`, `bureau`, `category`, `status`, `date_from`, `date_to`, `aicte_id`, `region`, `institution_name` (institution filters use an inner join) |
+
+Status codes: `403` is returned when a record is visible to the caller but the portal rule denies it. Records hidden by row-level security return `404` so their existence is not revealed. Case views are audited (`complaint.viewed`).

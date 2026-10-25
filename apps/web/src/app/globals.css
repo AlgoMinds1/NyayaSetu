@@ -62,3 +62,5 @@ select.input { cursor:pointer; }
 .p4-event time { color:var(--muted); font-size:12px; white-space:nowrap; }
 .p4-banner { padding:14px 18px; margin:18px 0; border:1px solid #c9ddcf; border-radius:10px; background:#eff7f2; }
 @media(max-width:640px){.p4-page{padding:24px 14px}.p4-event{display:block}.p4-event time{display:block;margin-top:8px}.p4-page>header{align-items:flex-start}.p4-actions{flex-direction:column;align-items:stretch}}
+.p4-modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center; padding:16px; z-index:50; }
+.p4-modal { max-width:520px; width:100%; max-height:90vh; overflow:auto; }

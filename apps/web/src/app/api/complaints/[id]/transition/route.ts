@@ -3,8 +3,9 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { isValidTransition, canRoleTransition, type LifecycleStatus } from "@/lib/state-machine";
+import { isValidTransition, canRoleTransition, canRoleEscalate, ESCALATE_ACTION, type LifecycleStatus } from "@/lib/state-machine";
 import { z } from "zod";
+import { notify } from "@/lib/notify";
 
 const Schema = z.object({
   to_status: z.string(),
@@ -15,12 +16,6 @@ const Schema = z.object({
   expected_disposal_at: z.string().optional(),
   out_of_scope_reason: z.string().optional(),
 });
-
-async function hashEvent(prevHash: string | null, eventType: string, actorId: string, eventAt: string, payload: unknown): Promise<string> {
-  const input = `${prevHash ?? ""}|${eventType}|${actorId}|${eventAt}|${JSON.stringify(payload)}`;
-  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(input));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
-}
 
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -38,7 +33,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   // Fetch current complaint
   const { data: complaint, error: fetchError } = await supabase
     .from("complaints")
-    .select("id, status, version, case_id")
+    .select("id, status, version, case_id, assigned_bureau")
     .eq("id", id)
     .single();
 
@@ -50,6 +45,28 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   }
 
   const fromStatus = complaint.status as LifecycleStatus;
+
+  // Escalation keeps the status: record a case event only.
+  if (to_status === ESCALATE_ACTION) {
+    if (!canRoleEscalate(fromStatus, role)) {
+      return NextResponse.json({ error: `Role '${role}' cannot escalate a case in status ${fromStatus}.` }, { status: 403 });
+    }
+    const escalatedAt = new Date().toISOString();
+    const { error: escalateError } = await supabase.from("case_events").insert({
+      complaint_id:    id,
+      event_type:      "escalation",
+      actor_id:        user.id,
+      actor_role:      role,
+      bureau:          req.headers.get("x-user-bureau") ?? null,
+      old_state:       { status: fromStatus, bureau: complaint.assigned_bureau ?? null },
+      new_state:       { status: fromStatus, bureau: complaint.assigned_bureau ?? null },
+      remarks,
+      event_at:        escalatedAt,
+    });
+    if (escalateError) return NextResponse.json({ error: "Escalation could not be recorded." }, { status: 500 });
+    return NextResponse.json({ success: true, new_status: fromStatus, version });
+  }
+
   const toStatus   = to_status as LifecycleStatus;
 
   // State machine validation
@@ -61,18 +78,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   }
 
   const now = new Date().toISOString();
-
-  // Fetch last event hash for chain
-  const { data: lastEvent } = await supabase
-    .from("case_events")
-    .select("event_hash")
-    .eq("complaint_id", id)
-    .order("event_at", { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
-  const eventPayload = { from: fromStatus, to: toStatus, remarks };
-  const eventHash = await hashEvent(lastEvent?.event_hash ?? null, "status_transition", user.id, now, eventPayload);
 
   // Update complaint + append event atomically (two writes — if event fails, UI will retry)
   const { error: updateError } = await supabase
@@ -91,19 +96,24 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   if (updateError) return NextResponse.json({ error: updateError.message }, { status: 500 });
 
-  await supabase.from("case_events").insert({
+  // event_hash and prev_event_hash are computed by the DB trigger on insert.
+  const { error: eventError } = await supabase.from("case_events").insert({
     complaint_id:    id,
     event_type:      "status_transition",
     actor_id:        user.id,
     actor_role:      role,
     bureau:          req.headers.get("x-user-bureau") ?? null,
-    old_state:       { status: fromStatus },
+    old_state:       { status: fromStatus, bureau: complaint.assigned_bureau ?? null },
     new_state:       { status: toStatus },
     remarks,
     event_at:        now,
-    prev_event_hash: lastEvent?.event_hash ?? null,
-    event_hash:      eventHash,
   });
+
+  if (eventError) return NextResponse.json({ error: "Status changed but its event could not be recorded." }, { status: 500 });
+
+  void notify({ event_type: "status_changed", complaint_id: id, ref: String(version + 1), actor_id: user.id });
+  if (toStatus === "referred") void notify({ event_type: "referred_to_college", complaint_id: id, ref: String(version + 1), actor_id: user.id });
+  if (toStatus === "decision_recorded") void notify({ event_type: "decision_recorded", complaint_id: id, ref: String(version + 1), actor_id: user.id });
 
   return NextResponse.json({ success: true, new_status: toStatus, version: version + 1 });
 }
