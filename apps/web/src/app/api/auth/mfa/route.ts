@@ -3,7 +3,6 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { getAppSession, hasActiveAppSession } from "@/lib/auth/session";
 import { auditLog } from "@/lib/audit";
-import { hasRequiredMfa } from "@/lib/auth/roles";
 
 const Body = z.object({ factorId: z.string().uuid(), code: z.string().regex(/^\d{6}$/) }).strict();
 export async function GET() {
@@ -12,7 +11,6 @@ export async function GET() {
   if (!await hasActiveAppSession(user.id)) return NextResponse.json({ error: "No active application session." }, { status: 401 });
   const session = await getAppSession(user); if (!session) return NextResponse.json({ error: "No active portal role." }, { status: 403 });
   if (!["college_management", "pgrc_triage_officer", "bureau_officer", "regional_officer", "bureau_head", "competent_authority", "ombudsperson", "auditor", "system_admin"].includes(session.role)) return NextResponse.json({ error: "MFA is not enabled for this role." }, { status: 403 });
-  if (!hasRequiredMfa(session.role, "aal1")) return NextResponse.json({ error: "MFA enrollment is required only for privileged portal roles." }, { status: 403 });
   const { data: assurance } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
   if (assurance?.currentLevel === "aal2") return NextResponse.json({ aal2: true });
   const { data: factors, error: listError } = await supabase.auth.mfa.listFactors();

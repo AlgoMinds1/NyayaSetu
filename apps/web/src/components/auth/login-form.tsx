@@ -8,10 +8,16 @@ export default function LoginForm() {
 
   async function sendOtpFor(targetEmail: string) {
     setBusy(true); setError("");
-    const response = await fetch("/api/auth/otp", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email: targetEmail }) });
-    const result = await response.json(); setBusy(false);
-    if (!response.ok) return setError(result.error ?? "Could not send code.");
-    window.location.assign(`/auth/verify?email=${encodeURIComponent(targetEmail)}`);
+    try {
+      const response = await fetch("/api/auth/otp", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email: targetEmail }) });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) return setError(result.error ?? "Could not send code. Please try again.");
+      window.location.assign(`/auth/verify?email=${encodeURIComponent(targetEmail)}`);
+    } catch {
+      setError("Could not reach the sign-in service. Check your connection and try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
