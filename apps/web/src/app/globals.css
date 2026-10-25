@@ -38,9 +38,9 @@ select.input { cursor:pointer; }
 .p4-form label,.p4-card label { margin:16px 0 7px; }
 .p4-form input:not([type=checkbox]),.p4-form select,.p4-form textarea,.p4-card textarea { display:block; width:100%; margin-top:7px; border:1px solid #bdcbc4; border-radius:8px; padding:11px 12px; background:white; }
 .p4-form textarea,.p4-card textarea { resize:vertical; font:inherit; }
-.p4-check { display:flex!important; align-items:flex-start; gap:10px; }
-.p4-check input { margin-top:3px; }
-.p4-check small { display:block; color:var(--muted); font-weight:400; }
+.p4-check { display:flex!important; align-items:flex-start; gap:10px; margin:12px 0 0!important; padding:0!important; cursor:pointer; }
+.p4-check input[type=checkbox] { flex-shrink:0; width:16px; height:16px; margin:2px 0 0; accent-color:var(--brand); cursor:pointer; }
+.p4-check small { display:block; color:var(--muted); font-weight:400; margin-top:2px; }
 .p4-options { display:grid; border:1px solid #dbe4df; border-radius:8px; background:white; max-height:220px; overflow:auto; }
 .p4-options button { margin:0; border-radius:0; background:white; color:var(--ink); text-align:left; font-weight:400; }
 .p4-options button:hover { background:#eff7f2; }
