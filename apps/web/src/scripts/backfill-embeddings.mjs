@@ -1,6 +1,6 @@
 // Embeds every complaint whose description_embedding is still null.
 // Run from apps/web: node --env-file=.env.local src/scripts/backfill-embeddings.mjs
-// Mirrors src/lib/overlap/embeddings.ts (plain JS so it runs without a TS loader).
+// Mirrors src/lib/overlap/embeddings.js.
 
 import { createClient } from "@supabase/supabase-js";
 import { pipeline } from "@huggingface/transformers";

@@ -1,0 +1,8 @@
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
+import { getApiSession } from "@/lib/auth/api-session";
+import { CaseDetail } from "@/components/phase4/case-detail";
+import { PostClosureTools } from "@/components/phase4/student-extras";
+export default async function StudentCase({ params }) { const auth = await getApiSession(); if (!auth || auth.session.role !== "student")
+    redirect("/auth/login"); const { id } = await params; const { data: c } = await auth.supabase.from("complaints").select("id,case_id,submitted_by,category,description_text,status,verification_status,coordination_status,deadline_status,appeal_status,receipt_date,expected_disposal_at,is_confidential,involves_management").eq("id", id).eq("submitted_by", auth.session.userId).maybeSingle(); if (!c)
+    notFound(); const { data: events } = await auth.supabase.from("case_events").select("id,event_type,actor_role,remarks,event_at,visibility").eq("complaint_id", id).in("visibility", ["public", "complainant"]).order("event_at"); const outcome = events?.find(e => e.event_type === "decision_recorded" || e.event_type === "case_closed")?.remarks ?? null; return <main className="portal p4-page"><header><div><Link href="/student">← My cases</Link><div className="brand">NyayaSetu · Student</div><h1>Case status</h1></div></header><CaseDetail initial={{ ...c, outcomeSummary: outcome }} events={(events ?? []).map(e => ({ ...e, actor_role: ["pgrc_triage_officer", "bureau_officer", "bureau_head"].includes(e.actor_role) ? "AICTE Officer" : e.actor_role }))} mode="student"/>{["closed", "appeal_decided"].includes(c.status) && <PostClosureTools caseId={c.id} appealEligible={c.appeal_status === "eligible"}/>}</main>; }

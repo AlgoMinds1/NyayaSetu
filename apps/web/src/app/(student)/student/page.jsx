@@ -1,0 +1,11 @@
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getApiSession } from "@/lib/auth/api-session";
+import { CaseList } from "@/components/phase4/case-list";
+import LogoutButton from "@/components/auth/logout-button";
+import { getTranslations } from "next-intl/server";
+import { NotificationBell } from "@/components/notifications/bell";
+import { LanguageSelect } from "@/components/i18n/language-select";
+import { DemoPersonaSwitcher } from "@/components/demo/persona-switcher";
+export default async function StudentPortal() { const auth = await getApiSession(); if (!auth || auth.session.role !== "student")
+    redirect("/auth/login"); const t = await getTranslations("nav"); const { data } = await auth.supabase.from("complaints").select("id,case_id,category,status,receipt_date,last_action_at,deadline_status,urgency_status").eq("submitted_by", auth.session.userId).order("receipt_date", { ascending: false }); return <main className="portal p4-page"><header><div><div className="brand">NyayaSetu · Student</div><h1>{t("myCases")}</h1></div><div className="p4-actions">{auth.isDemo && <DemoPersonaSwitcher currentPersona="student"/>}<Link className="p4-primary" href="/student/new">{t("fileComplaint")}</Link><Link className="p4-linkbutton" href="/student/affiliation">{t("affiliation")}</Link><Link className="p4-linkbutton" href="/student/privacy">{t("privacy")}</Link><LanguageSelect /><NotificationBell /><LogoutButton /></div></header><p className="muted">Track the progress of complaints you submitted.</p><CaseList rows={data ?? []} base="/student/cases"/></main>; }

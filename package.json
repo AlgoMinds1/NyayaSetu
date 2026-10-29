@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "npm run dev --workspace @nyayasetu/web",
     "build": "npm run build --workspace @nyayasetu/web",
-    "typecheck": "npm run typecheck --workspace @nyayasetu/web",
     "lint": "npm run lint --workspace @nyayasetu/web",
     "test": "npm run test --workspace @nyayasetu/web",
     "audit": "npm audit --omit=dev",

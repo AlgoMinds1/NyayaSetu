@@ -1,7 +1,7 @@
 # NyayaSetu — Completion Plan
 
 Source of truth: `sources/NyayaSetu_ProjectPlan.md` (§4 Phase Breakdown) and `docs/`.
-Baseline: commit `abaa586` — typecheck and `next build` pass.
+Baseline before the JavaScript migration: commit `abaa586` — typecheck and `next build` pass.
 Rules: continue the code base, do not refactor. New migrations go in `supabase/migrations/` only.
 Any edit to an existing file must appear in **Part B** and be approved before it is made.
 No push to the live Supabase project without asking first.
@@ -54,7 +54,7 @@ Resend + VAPID keys, an external hourly caller for the two cron routes, official
 - ✅ Recusal reassignment, hearing notifications, roster re-verification, IndexedDB drafts → **B4**
 
 ### Phase 5 — Notifications, OCR, multilingual (all missing)
-- ✅ Notification policies seed + dispatcher (`lib/notify.ts`), recipient resolution, sensitive-case rule
+- ✅ Notification policies seed + dispatcher (`lib/notify.js`), recipient resolution, sensitive-case rule
 - ✅ Email via Resend (no-op + logged while `RESEND_API_KEY` is blank), idempotency key
 - ✅ In-app bell + `/api/notifications`
 - ✅ Web Push (only active once VAPID keys are set)
@@ -83,16 +83,16 @@ Resend + VAPID keys, an external hourly caller for the two cron routes, official
 | # | Severity | Change | Files |
 |---|---|---|---|
 | B1 | High | Treat `supabase/migrations` as the only authority; mark `packages/db/migrations` as legacy (README note only, no deletion) | `packages/db/README.md` |
-| B2 | **Critical** | Remove the dev OTP fallback: route returns a working login code (`devOtp`) to any caller and logs it; login form puts it in the URL | `api/auth/otp/route.ts`, `components/auth/login-form.tsx` |
-| B3 | High | Overlap detection: use the new 6-factor score, read `dismissed_pairs`, stop recreating dismissed alerts, stop Alert 2 firing on category+date alone, run on bureau change | `api/overlap/detect/route.ts`, `api/complaints/[id]/assign/route.ts` |
-| B4 | Medium | Hook notifications into existing routes (transition, assign, hearings, recuse, roster upload re-verification, feedback/appeal); IndexedDB drafts | the matching `api/**/route.ts`, `complaint-form.tsx` |
-| B5 | Medium | State machine: add escalate + transfer prior-bureau; fix institution filters with `!inner` | `lib/state-machine.ts`, `api/complaints/route.ts` |
-| B6 | Medium | Audit case views; return 403 (not 404) on denials; check event-insert errors; stop swallowing audit failures | `api/complaints/[id]/route.ts`, `events/route.ts`, `transition/route.ts`, `assign/route.ts` |
+| B2 | **Critical** | Remove the dev OTP fallback: route returns a working login code (`devOtp`) to any caller and logs it; login form puts it in the URL | `api/auth/otp/route.js`, `components/auth/login-form.jsx` |
+| B3 | High | Overlap detection: use the new 6-factor score, read `dismissed_pairs`, stop recreating dismissed alerts, stop Alert 2 firing on category+date alone, run on bureau change | `api/overlap/detect/route.js`, `api/complaints/[id]/assign/route.js` |
+| B4 | Medium | Hook notifications into existing routes (transition, assign, hearings, recuse, roster upload re-verification, feedback/appeal); IndexedDB drafts | the matching `api/**/route.js`, `complaint-form.jsx` |
+| B5 | Medium | State machine: add escalate + transfer prior-bureau; fix institution filters with `!inner` | `lib/state-machine.js`, `api/complaints/route.js` |
+| B6 | Medium | Audit case views; return 403 (not 404) on denials; check event-insert errors; stop swallowing audit failures | `api/complaints/[id]/route.js`, `events/route.js`, `transition/route.js`, `assign/route.js` |
 | B6b | Medium | Routes stop computing `event_hash` themselves (their `|`-separated format differs) and let the new DB trigger do it, so `verify_case_event_chain` works | `transition`, `assign`, `events`, `appeal` routes |
-| B7 | Low | Add CSP + HSTS | `next.config.ts` |
+| B7 | Low | Add CSP + HSTS | `next.config.js` |
 | B8 | Low | Service worker caches an authenticated page; switch to drafts-only | `public/sw.js` |
 | B9 | Low | Update `docs/mvp-seed-api.md` to match the routes as built (docs only, no code change) | `docs/mvp-seed-api.md` |
-| B10 | Low | Add nav links to new pages in existing layouts/home | `components/portal-home.tsx`, portal pages |
+| B10 | Low | Add nav links to new pages in existing layouts/home | `components/portal-home.jsx`, portal pages |
 
 | B11 | Medium | **Approved 2026-10-24.** `complaints_student_insert` RLS requires a *verified* affiliation, but plan §3.3 says unverified students may still file (held at AICTE triage, never auto-forwarded). Needs a new migration replacing that policy | new migration (replaces existing policy) |
 
@@ -105,4 +105,4 @@ Resend + VAPID keys, an external hourly caller for the two cron routes, official
 4. Phase 5: notifications, OCR, i18n, Bhashini mock
 5. Phase 6: reports, RAG, tests, demo reset
 6. Approved Part B items
-7. `SETUP.md`, typecheck, build, tests; ask before `supabase db push`
+7. `SETUP.md`, lint, build, tests; ask before `supabase db push`

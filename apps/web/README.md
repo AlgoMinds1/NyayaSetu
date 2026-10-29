@@ -4,7 +4,7 @@
 
 From the repository root, install workspace dependencies with `npm install`. Copy `apps/web/.env.example` to `apps/web/.env.local`, fill the Supabase URL, anon key, and server-only service-role key, then run `npm run dev`.
 
-The app uses Next.js 16 App Router, Supabase SSR cookies, email OTP, TOTP for privileged roles, a server-side role/session guard in `src/proxy.ts`, PostgreSQL RLS, and an append-only audit log. Portal pages are protected placeholders; case workflows are planned for later phases.
+The app uses Next.js 16 App Router with JavaScript, Supabase SSR cookies, email OTP, TOTP for privileged roles, a server-side role/session guard in `src/proxy.js`, PostgreSQL RLS, and an append-only audit log. Portal pages are protected placeholders; case workflows are planned for later phases.
 
 ## Database
 

@@ -34,9 +34,9 @@ Sample files:
 From `apps/web`, with `.env.local` set (needs `NEXT_PUBLIC_SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`):
 
 ```
-npx tsx --conditions=react-server --env-file=.env.local src/scripts/ingest-policy.mjs ../../docs/policy-corpus
+node --conditions=react-server --env-file=.env.local src/scripts/ingest-policy.mjs ../../docs/policy-corpus
 ```
 
-The first run downloads the embedding model used by `lib/overlap/embeddings.ts`.
+The first run downloads the embedding model used by `lib/overlap/embeddings.js`.
 
 Sample corpus for demo — replace with official documents.

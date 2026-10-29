@@ -1,12 +1,12 @@
 // Ingests the policy corpus: chunk each Markdown file by `## ` heading, embed each chunk, replace its rows in policy_chunks.
 // Usage (from apps/web):
-//   npx tsx --conditions=react-server --env-file=.env.local src/scripts/ingest-policy.mjs ../../docs/policy-corpus
-// --conditions=react-server lets the server-only guard in lib/overlap/embeddings.ts load outside Next.
+//   node --conditions=react-server --env-file=.env.local src/scripts/ingest-policy.mjs ../../docs/policy-corpus
+// --conditions=react-server lets the server-only guard in lib/overlap/embeddings.js load outside Next.
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { createClient } from "@supabase/supabase-js";
-import { embed } from "../lib/overlap/embeddings.ts";
-import { chunkMarkdown } from "../lib/rag/policy.ts";
+import { embed } from "../lib/overlap/embeddings.js";
+import { chunkMarkdown } from "../lib/rag/policy.js";
 
 const dir = process.argv[2];
 if (!dir) {

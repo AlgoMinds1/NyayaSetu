@@ -1,0 +1,22 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+import { getApiSession } from "@/lib/auth/api-session";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { auditLog } from "@/lib/audit";
+import { recuseFaculty } from "@/lib/cases/recuse";
+const Body = z.object({ reason: z.string().trim().min(10).max(1000) });
+export async function POST(req, { params }) { const auth = await getApiSession(); if (!auth)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 }); if (auth.session.role !== "faculty")
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 }); const parsed = Body.safeParse(await req.json().catch(() => null)); if (!parsed.success)
+    return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 }); const { id } = await params, admin = createAdminClient(); try {
+    if (!await recuseFaculty(admin, id, auth.session.userId, parsed.data.reason))
+        return NextResponse.json({ error: "No active assignment for this case." }, { status: 404 });
+}
+catch (error) {
+    return NextResponse.json({ error: error instanceof Error ? error.message : "Recusal failed." }, { status: 500 });
+} try {
+    await auditLog({ actor_id: auth.session.userId, action: "faculty.case_recused", resource_type: "complaint", resource_id: id, reason: parsed.data.reason });
+}
+catch {
+    return NextResponse.json({ error: "Could not record the audit event." }, { status: 500 });
+} return NextResponse.json({ recused: true }); }

@@ -42,7 +42,7 @@ npm run db:push
 npm run seed
 cd apps/web
 node --env-file=.env.local src/scripts/backfill-embeddings.mjs
-npx tsx --conditions=react-server --env-file=.env.local src/scripts/ingest-policy.mjs ../../docs/policy-corpus
+node --conditions=react-server --env-file=.env.local src/scripts/ingest-policy.mjs ../../docs/policy-corpus
 cd ../..
 ```
 Demo accounts sign in with email OTP (no passwords). Their `@nyayasetu.test` addresses cannot receive mail, so get a login code locally:
@@ -64,7 +64,6 @@ Open http://localhost:3000.
 
 ## 7. Checks
 ```bash
-npm run typecheck
 npm run lint
 npm test
 npm run build

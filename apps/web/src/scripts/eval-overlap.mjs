@@ -1,10 +1,10 @@
 // Precision / recall / F1 for Alert 2 (potentially related cases) on the labelled test set.
-// Run from apps/web: npx tsx src/scripts/eval-overlap.mjs
+// Run from apps/web: node src/scripts/eval-overlap.mjs
 // Writes the results to docs/overlap-eval.md at the repo root.
 
 import fs from "node:fs";
 import { pipeline } from "@huggingface/transformers";
-import { scorePair, RELATED_THRESHOLD } from "../lib/overlap/scoring.ts";
+import { scorePair, RELATED_THRESHOLD } from "../lib/overlap/scoring.js";
 
 const MODEL = "Xenova/paraphrase-multilingual-mpnet-base-v2";
 const DAY_MS = 86_400_000;

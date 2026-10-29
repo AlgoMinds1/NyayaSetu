@@ -1,0 +1,25 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+import { getApiSession } from "@/lib/auth/api-session";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { auditLog } from "@/lib/audit";
+import { notify } from "@/lib/notify";
+const Body = z.object({ starts_at: z.string().datetime(), ends_at: z.string().datetime().optional(), location: z.string().trim().max(300).optional(), meeting_url: z.string().url().refine(v => v.startsWith("https://")).optional() });
+async function access(id, userId) { const db = createAdminClient(); const [{ data: p }, { data: c }] = await Promise.all([db.from("participants").select("id").eq("complaint_id", id).eq("user_id", userId).eq("role", "faculty").is("removed_at", null).maybeSingle(), db.from("complaints").select("id,is_confidential").eq("id", id).maybeSingle()]); return { db, ok: !!p && !!c && !c.is_confidential }; }
+export async function GET(_r, { params }) { const auth = await getApiSession(); if (!auth)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 }); if (auth.session.role !== "faculty")
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 }); const { id } = await params; const { ok } = await access(id, auth.session.userId); if (!ok)
+    return NextResponse.json({ error: "Not found" }, { status: 404 }); const { data, error } = await auth.supabase.from("hearings").select("id,starts_at,ends_at,location,meeting_url,status,created_at").eq("complaint_id", id).order("starts_at"); if (error)
+    return NextResponse.json({ error: error.message }, { status: 500 }); return NextResponse.json({ hearings: data ?? [] }); }
+export async function POST(req, { params }) { const auth = await getApiSession(); if (!auth)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 }); if (auth.session.role !== "faculty")
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 }); const input = Body.safeParse(await req.json().catch(() => null)); if (!input.success)
+    return NextResponse.json({ error: input.error.flatten() }, { status: 400 }); const { id } = await params; const { db, ok } = await access(id, auth.session.userId); if (!ok)
+    return NextResponse.json({ error: "Not found" }, { status: 404 }); const starts = new Date(input.data.starts_at); if (starts.getTime() < Date.now())
+    return NextResponse.json({ error: "Hearing time must be in the future." }, { status: 400 }); const { data, error } = await db.from("hearings").insert({ complaint_id: id, scheduled_by: auth.session.userId, starts_at: starts.toISOString(), ends_at: input.data.ends_at ?? null, location: input.data.location ?? null, meeting_url: input.data.meeting_url ?? null }).select("id,starts_at,ends_at,location,meeting_url,status").single(); if (error)
+    return NextResponse.json({ error: error.message }, { status: 500 }); try {
+    await auditLog({ actor_id: auth.session.userId, action: "faculty.hearing_scheduled", resource_type: "complaint", resource_id: id, new_value: { hearing_id: data.id, starts_at: data.starts_at } });
+}
+catch {
+    return NextResponse.json({ error: "Audit log failed." }, { status: 500 });
+} void notify({ event_type: "hearing_scheduled", complaint_id: id, ref: data.id, actor_id: auth.session.userId }); return NextResponse.json({ hearing: data }, { status: 201 }); }

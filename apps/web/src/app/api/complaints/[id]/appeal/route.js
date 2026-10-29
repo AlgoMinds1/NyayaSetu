@@ -1,0 +1,14 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+import { getApiSession } from "@/lib/auth/api-session";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { notify } from "@/lib/notify";
+const Body = z.object({ reason: z.string().trim().min(10).max(5000) });
+export async function POST(req, { params }) { const auth = await getApiSession(); if (!auth)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 }); if (auth.session.role !== "student")
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 }); const body = Body.safeParse(await req.json().catch(() => null)); if (!body.success)
+    return NextResponse.json({ error: body.error.flatten() }, { status: 400 }); const { id } = await params, admin = createAdminClient(); const { data: c } = await admin.from("complaints").select("id,case_id,submitted_by,status,appeal_status,version").eq("id", id).eq("submitted_by", auth.session.userId).maybeSingle(); if (!c)
+    return NextResponse.json({ error: "Not found" }, { status: 404 }); if (c.status !== "closed" || c.appeal_status !== "eligible")
+    return NextResponse.json({ error: "This case is not currently eligible for appeal." }, { status: 409 }); const now = new Date().toISOString(); const { error: updateError } = await admin.from("complaints").update({ status: "appeal_submitted", appeal_status: "submitted", last_action_at: now, version: c.version + 1 }).eq("id", id).eq("version", c.version); if (updateError)
+    return NextResponse.json({ error: updateError.message }, { status: 409 }); const { error } = await admin.from("case_events").insert({ complaint_id: id, event_type: "status_transition", actor_id: auth.session.userId, actor_role: "student", old_state: { status: "closed" }, new_state: { status: "appeal_submitted", appeal_status: "submitted" }, remarks: body.data.reason, visibility: "complainant", event_at: now }); if (error)
+    return NextResponse.json({ error: "Appeal status changed but its event could not be recorded." }, { status: 500 }); void notify({ event_type: "appeal_submitted", complaint_id: id, ref: now, actor_id: auth.session.userId }); return NextResponse.json({ submitted: true }); }
